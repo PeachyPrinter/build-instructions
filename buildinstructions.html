@@ -1,9 +1,9 @@
 <html>
   <head>
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/lightbox-2.6.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/slimbox2.js"></script>
 
-    <link href="css/lightbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" />
 
     <style media="screen" type="text/css">
       .container {
@@ -173,7 +173,8 @@
       imgElem.src = images[i];
       imgElem.width = 760;
       imgElem.height = 280;
-      imgElem.onclick = "window.open('" + images[i] + "')";
+
+      imgElem.onclick = function() { jQuery.slimbox(imgElem.src, "foo") };
       li.appendChild(imgElem);
       imageSlider.appendChild(li);
     }
@@ -706,9 +707,9 @@ Add testing the Frame instructions here</div>
   <div class="slider-container">
       <div class="slider_wrapper">
           <ul id="image_slider">
-              <li><img src="http://www.wallpaperswala.com/wp-content/gallery/funny-cat/cute_funny_cat_sliping_a_paper.jpg" width="760" height="280" onclick="window.open('http://www.wallpaperswala.com/wp-content/gallery/funny-cat/cute_funny_cat_sliping_a_paper.jpg')" title="Click for full-size image"></li>
-              <li><img src="http://www.dumpaday.com/wp-content/uploads/2012/10/funny-cats-25.jpg" width="760" height="280" onclick="window.open('http://www.dumpaday.com/wp-content/uploads/2012/10/funny-cats-25.jpg')" title="Click for full-size image"></li>
-              <li><img src="http://3.bp.blogspot.com/-RFWgysZRs0A/TxbJaEaZqHI/AAAAAAADYNg/ZMPPu_GffA4/s1600/Cat%2Bpictures%2Bfunny%2B%2528937%2529.jpg" width="760" height="280" onclick="window.open('http://3.bp.blogspot.com/-RFWgysZRs0A/TxbJaEaZqHI/AAAAAAADYNg/ZMPPu_GffA4/s1600/Cat%2Bpictures%2Bfunny%2B%2528937%2529.jpg')" title="Click for full-size image"></li>
+              <li><img src="http://www.wallpaperswala.com/wp-content/gallery/funny-cat/cute_funny_cat_sliping_a_paper.jpg" width="760" height="280" title="Click for full-size image"></li>
+              <li><img src="http://www.dumpaday.com/wp-content/uploads/2012/10/funny-cats-25.jpg" width="760" height="280" title="Click for full-size image"></li>
+              <li><img src="http://3.bp.blogspot.com/-RFWgysZRs0A/TxbJaEaZqHI/AAAAAAADYNg/ZMPPu_GffA4/s1600/Cat%2Bpictures%2Bfunny%2B%2528937%2529.jpg" width="760" height="280" title="Click for full-size image"></li>
           </ul>					
           <span class="nvgt" id="prev"></span>
           <span class="nvgt" id="next"></span>		
