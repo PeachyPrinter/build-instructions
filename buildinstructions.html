@@ -172,7 +172,7 @@
     var urls = [];
     for (var i = 0; i < images.length; i++) {
       var urlAndDescrip = [];
-      urlAndDescrip.push(images[i].replace("images/", "lightbox/images/"));
+      urlAndDescrip.push(images[i]); //.replace("images/", "lightbox/images/"));
       urlAndDescrip.push("Descrip goes here");
       urls.push(urlAndDescrip);
     }
@@ -184,7 +184,7 @@
       imgElem.width = 760;
       imgElem.height = 280;
 
-      imgElem.onclick = function() { jQuery.slimbox(urls, 0, {loop: true}) };
+      imgElem.onclick = function() { jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) };
       li.appendChild(imgElem);
       imageSlider.appendChild(li);
     }
