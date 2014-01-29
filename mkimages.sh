@@ -1,5 +1,5 @@
 export LIGHTBOX_SIZE=500x500
-export SLIDER_SIZE=760x280
+export SLIDER_SIZE=522x350
 for i in images/**/*
 do
   echo $i

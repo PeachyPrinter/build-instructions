@@ -178,7 +178,7 @@
     var urls = [];
     for (var i = 0; i < images.length; i++) {
       var urlAndDescrip = [];
-      urlAndDescrip.push(images[i]); 
+      urlAndDescrip.push(images[i]);
       urlAndDescrip.push("Descrip goes here");
       urls.push(urlAndDescrip);
     }
@@ -187,7 +187,7 @@
       var li = document.createElement("li");
       var imgElem = document.createElement("img");
       imgElem.className = "mag";
-      imgElem.src = images[i];
+      imgElem.src = images[i].replace("images/", "slider/images/");
       imgElem.width = 760;
       imgElem.height = 280;
 
