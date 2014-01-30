@@ -83,8 +83,8 @@
 
 .slider-container{
         position: fixed;
-	width:710px;
-	height:400px;
+	width:560px;
+	height:390px;
 	padding:20px;
 	border:1px solid gray;
 	-webkit-box-sizing:border-box;
@@ -178,7 +178,7 @@
     var urls = [];
     for (var i = 0; i < images.length; i++) {
       var urlAndDescrip = [];
-      urlAndDescrip.push(images[i]);
+      urlAndDescrip.push(images[i].replace("images/", "lightbox/images/"));
       urlAndDescrip.push("Descrip goes here");
       urls.push(urlAndDescrip);
     }
@@ -187,11 +187,12 @@
       var li = document.createElement("li");
       var imgElem = document.createElement("img");
       imgElem.className = "mag";
-      imgElem.src = images[i].replace("images/", "slider/images/");
-      imgElem.width = 760;
-      imgElem.height = 280;
+      var url = images[i].replace("images/", "lightbox/images/");
+      imgElem.src = images[i];
+      imgElem.width = 522;
+      imgElem.height = 350;
 
-      imgElem.onclick = function() { jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) };
+      imgElem.onclick = function() { jQuery.slimbox(url, "My Description", {initialHeight: "90%", initialWidth: "90%" }) };
       li.appendChild(imgElem);
       imageSlider.appendChild(li);
     }
@@ -201,10 +202,11 @@
     }
 
     init();
-    var big = document.createElement('img');
-    big.src = "images/fullscreen.png";
-    big.onclick = function() { jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) };
-    pager.appendChild(big);
+    //var big = document.createElement('img');
+    //big.src = "images/fullscreen.png";
+    //big.onclick = function() { jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) };
+    //big.onclick = function() { jkpopimage('jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) };
+    //pager.appendChild(big);
     $('.mag').loupe();
   }
 //1. set ul width 
@@ -730,7 +732,7 @@ Add testing the Frame instructions here</div>
   <div class="slider-container">
       <div class="slider_wrapper">
           <ul id="image_slider">
-              <li><img class="mag" src="http://www.wallpaperswala.com/wp-content/gallery/funny-cat/cute_funny_cat_sliping_a_paper.jpg" width="760" height="280" title="Click for full-size image"></li>
+            <li><img class="mag" src="http://www.wallpaperswala.com/wp-content/gallery/funny-cat/cute_funny_cat_sliping_a_paper.jpg" width="760" height="280" title="Click for full-size image"></li>
               <li><img class="mag" src="http://www.dumpaday.com/wp-content/uploads/2012/10/funny-cats-25.jpg" width="760" height="280" title="Click for full-size image"></li>
               <li><img class="mag" src="http://3.bp.blogspot.com/-RFWgysZRs0A/TxbJaEaZqHI/AAAAAAADYNg/ZMPPu_GffA4/s1600/Cat%2Bpictures%2Bfunny%2B%2528937%2529.jpg" width="760" height="280" title="Click for full-size image"></li>
           </ul>					
