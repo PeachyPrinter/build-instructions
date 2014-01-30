@@ -37,6 +37,11 @@
         height:380px;
        }
 
+       .instructions {
+         background: lightgrey;
+         height: 100%;
+       }
+
        table{ width: 100% }
 
      table td {
@@ -181,6 +186,8 @@
   });
 
   function set_images(images) {
+    $('.instructions').hide();
+    $('.slider-container').show();
     var imageSlider = document.getElementById("image_slider");
     while(imageSlider.firstChild) {
       imageSlider.removeChild(imageSlider.firstChild);
@@ -238,6 +245,7 @@ function init(){
     generatePager(imageNumber);
     prev.onclick = function(){ onClickPrev();};
     next.onclick = function(){ onClickNext();};
+    $('slider-container').hide();
 }
 
 function animate(opts){
@@ -739,6 +747,11 @@ Add testing the Frame instructions here</div>
   <div class='right'> <!-- fit parent -->
     <div id="imageframe"><div/></div>
   </div>
+<div class="instructions">
+  <table border="0" height="100%">
+    <tr><td align="middle" style="height: 100%">Click on a step to view detailed instructional images :)</td></tr>
+</table>
+</div>
   <div class="slider-container">
       <div class="slider_wrapper">
           <ul id="image_slider">
@@ -760,15 +773,17 @@ Add testing the Frame instructions here</div>
   <br/>
   <table border="0" width="100%">
     <tr valign="middle">
+      <td width="25%">&nbsp;</td>
       <td align="middle"><span onclick="window.open('http://peachyprinter-forum.com/phpbb')"> Beta Tester Forum</span></td>
       <td align="middle"><span onclick="window.open('http://peachyprinter-forum.com/wiki')">Instructions Wiki</span></td>
       <td align="middle"><span onclick="window.open('http://peachyprinter.com">Official Website</span></td>
+      <td width="25%">&nbsp;</td>
     </tr>
   </table>
 </div>
 </div>
 <script>
-  $('.mag').loupe();
+  $('.slider-container').hide();
 </script>
 </body>
 </html>
