@@ -23,11 +23,12 @@
         padding-bottom: 30px;
         width: 47%;
         overflow-y: auto;
-        height: 89%; 
+        height: 87%; 
+        box-shadow: 5px 5px 5px 2px lightgrey;
       }
 
       .container .right{
-        margin-top: 70px;
+        margin-top: 90px;
         margin-bottom: 30px;
         position: absolute;
         top:0px;
@@ -46,6 +47,7 @@
        margin:0px;
        background:white;
        background-image:url('background-image.jpg');
+       font-family: Helvetica;
      }
      .header-cont {
        width: 100%
@@ -66,14 +68,16 @@
        border:1px solid #CCC;
        width:100%;
        margin:0px auto;
+       box-shadow: 5px 5px 5px 2px lightgrey;
      }
      .footer {
        position:fixed;
        left:0px;
        bottom:0px;
-       height:30px;
+       height:50px;
        width:100%;
-       background:lightgrey;
+       background:white;
+       font-family: Helvetica;
      }
      .footer-inner {
        display: block;
@@ -753,8 +757,14 @@ Add testing the Frame instructions here</div>
   </div>
 </div>
 <div class="footer">
-  <div class="footer-inner">
-    <a href="http://peachyprinter-forum/phpbb">Beta Tester Forum</a>&nbsp;&nbsp;<a href="http://peachyprinter-forum/wiki">Instructions Wiki</a>&nbsp;&nbsp;<a href="http://peachyprinter.com">Official Website</a>
+  <br/>
+  <table border="0" width="100%">
+    <tr valign="middle">
+      <td align="middle"><span onclick="window.open('http://peachyprinter-forum.com/phpbb')"> Beta Tester Forum</span></td>
+      <td align="middle"><span onclick="window.open('http://peachyprinter-forum.com/wiki')">Instructions Wiki</span></td>
+      <td align="middle"><span onclick="window.open('http://peachyprinter.com">Official Website</span></td>
+    </tr>
+  </table>
 </div>
 </div>
 <script>
