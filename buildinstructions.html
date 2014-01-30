@@ -178,7 +178,7 @@
     var urls = [];
     for (var i = 0; i < images.length; i++) {
       var urlAndDescrip = [];
-      urlAndDescrip.push(images[i].replace("images/", "lightbox/images/"));
+      urlAndDescrip.push(images[i]);
       urlAndDescrip.push("Descrip goes here");
       urls.push(urlAndDescrip);
     }
@@ -187,7 +187,7 @@
       var li = document.createElement("li");
       var imgElem = document.createElement("img");
       imgElem.className = "mag";
-      var url = images[i].replace("images/", "lightbox/images/");
+      var url = images[i];
       imgElem.src = images[i];
       imgElem.width = 522;
       imgElem.height = 350;
@@ -202,12 +202,8 @@
     }
 
     init();
-    //var big = document.createElement('img');
-    //big.src = "images/fullscreen.png";
-    //big.onclick = function() { jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) };
-    //big.onclick = function() { jkpopimage('jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) };
-    //pager.appendChild(big);
-    $('.mag').loupe();
+    document.getElementById("big").onclick = function() { jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) };
+    document.getElementById("magnifier").onclick = function() { $('.mag').loupe(); };
   }
 //1. set ul width 
 //2. image when click prev/next button
@@ -741,6 +737,8 @@ Add testing the Frame instructions here</div>
       </div>
       <ul id="pager">
       </ul>
+      <img id="big" src="images/fullscreen2.png"/>
+      <img id="magnifier" src="images/magnifier.png"/>
 </div>
   </div>
 </div>
