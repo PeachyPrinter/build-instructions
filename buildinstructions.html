@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" />
 
     <style media="screen" type="text/css">
+      .imageframe {
+        background: lightgrey;
+      }
       .container {
         height: 100%;
         display: table;
@@ -28,17 +31,20 @@
       }
 
       .container .right{
+        background: red;
         margin-top: 90px;
         margin-bottom: 30px;
         position: absolute;
         top:0px;
         left:50%;
         width: 50%;
-        height:380px;
+        height:87%
        }
 
        .instructions {
-         background: lightgrey;
+         margin-top: 0px;
+         padding-top: 0px;
+         background: orange;
          height: 100%;
        }
 
@@ -744,8 +750,10 @@ Add testing the Frame instructions here</div>
                 <br>
   </div>
               <div id="Section*">
+              </div>
+  </div> <!-- left -->
   <div class='right'> <!-- fit parent -->
-    <div id="imageframe"><div/></div>
+    <div id="imageframe" class="imageframe"><div/></div>
   </div>
 <div class="instructions">
   <table border="0" height="100%">
