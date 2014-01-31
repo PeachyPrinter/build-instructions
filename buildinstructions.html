@@ -195,7 +195,14 @@
       loupe: 'loupe' 
   });
 
-  function set_images(images, section_id) {
+  function show_step(section_id) {
+    var section = document.getElementById(section_id);
+    var section_onclick = section.onclick;
+    section.onclick();
+    document.getElementById("big").onclick();
+  }
+
+  function set_images(images, section_id, next_step) {
     $('.instructions').hide();
     $('.slider-container').show();
     var imageSlider = document.getElementById("image_slider");
@@ -208,7 +215,8 @@
       var urlAndDescrip = [];
       urlAndDescrip.push(images[i]);
       var section = document.getElementById(section_id);
-      urlAndDescrip.push(section.innerHTML);
+      var onclickstr = "show_step('" + next_step + "')";
+      urlAndDescrip.push(section.innerHTML + "&nbsp;<a href='#' onclick=" + onclickstr + ">Next Step</a>");
       urls.push(urlAndDescrip);
     }
 
@@ -373,7 +381,7 @@ window.onload = init;
     </div>
     <br>
 
-    <div id="step1-1" class="live" onclick="set_images(['images/mirror-assembly/1.jpg'], 'step1-1')">1. Wrap the elastic thread around corner
+    <div id="step1-1" class="live" onclick="set_images(['images/mirror-assembly/1.jpg'], 'step1-1', 'step1-2')">1. Wrap the elastic thread around corner
         thread notch set A, and channel it through center notch A.
     </div>
     <br>
