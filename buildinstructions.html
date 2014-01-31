@@ -249,8 +249,17 @@ function init(){
     prev = document.getElementById("prev");
     next = document.getElementById("next");
     generatePager(imageNumber);
+    var pagerDiv = document.getElementById('pager');
     prev.onclick = function(){ onClickPrev();};
     next.onclick = function(){ onClickNext();};
+    pagerDiv.style.opacity = '0.0';
+    prev.style.display = 'none';
+    next.style.display = 'none';
+    if (liItems.length > 1) {
+      pagerDiv.style.opacity = '0.6';
+      prev.style.display = 'block';
+      next.style.display = 'block';
+    }
     $('slider-container').hide();
 }
 
