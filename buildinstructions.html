@@ -1,197 +1,201 @@
-<html>
-<head>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/slimbox2.js"></script>
-<script type="text/javascript" src="js/jquery.loupe.min.js"></script>
+, 'step1-4'<html>
+  <head>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/slimbox2.js"></script>
+    <script type="text/javascript" src="js/jquery.loupe.min.js"></script>
 
-<link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen"/>
 
-<style media="screen" type="text/css">
-    .container {
-    height: 100%;
-    display: table;
-    width: 100%;
-    position:relative;
+    <style media="screen" type="text/css">
+      .container {
+        height: 100%;
+        display: table;
+        width: 100%;
+        position:relative;
+      }
+
+      .container .left{
+        margin-top: 72px;
+        margin-bottom: 30px;
+        margin-right: 100px;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-bottom: 30px;
+        width: 47%;
+        overflow-y: auto;
+        height: 80%;
+        box-shadow: 5px 5px 5px 2px lightgrey;
+      }
+
+      .container .right {
+        text-align: center;
+        background: white;
+        margin-top: 72px;
+        margin-bottom: 30px;
+        position: absolute;
+        top:0px;
+        left:50%;
+        width: 50%;
+        height:80%
+      }
+
+      .instructions {
+        margin-top: 0px;
+        padding-top: 0px;
+        background: lightgrey;
+        height: 100%;
+      }
+
+      table { width: 100% }
+
+      table td {
+        border-spacing: 2px;
+      }
+
+      body {
+        margin:0px;
+        background:white;
+        background-image:url('background-image.jpg');
+        font-family: Helvetica;
+      }
+
+      .header {
+        top: 0px;
+        position: fixed;
+        background: white;
+        padding: 0 10px 0 20px;
+        height:70px;
+        border:1px solid #CCC;
+        width:100%;
+        margin:0px auto;
+        box-shadow: 5px 5px 5px 2px lightgrey;
+      }
+
+      .footer {
+        position:fixed;
+        left:0px;
+        bottom:0px;
+        height:50px;
+        width:100%;
+        background:white;
+        font-family: Helvetica;
+      }
+
+      .footer-inner {
+        display: block;
+        width: 400px;
+        margin: 0 auto;
+      }
+
+      /* IE 6 */
+      * html .footer {
+        position:absolute;
+        top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ?
+        document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ?
+        document.documentElement.scrollTop : document.body.scrollTop))+'px');
+      }
+
+      .slider-container {
+        margin: 0 auto;
+        //position: fixed;
+        width:560px;
+        height:390px;
+        padding:20px;
+        border:1px solid gray;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        box-sizing:border-box;
+        background: black;
+        text-align: center;
+      }
+
+      .slider_wrapper {
+        overflow: hidden;
+        position:relative;
+        height:280px;
+        top:auto;
+      }
+
+      #image_slider {
+        position: relative;
+        height: auto;
+        list-style: none;
+        overflow: hidden;
+        float: left;
+        /*Chrom default padding for ul is 40px */
+        padding:0px;
+        margin:0px;
+      }
+
+    #image_slider li {
+      position: relative;
+      float: left;
     }
 
-    .container .left{
-    margin-top: 72px;
-    margin-bottom: 30px;
-    margin-right: 100px;
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 30px;
-    width: 47%;
-    overflow-y: auto;
-    height: 80%;
-    box-shadow: 5px 5px 5px 2px lightgrey;
-    }
-
-    .container .right{
-    text-align: center;
-    background: white;
-    margin-top: 72px;
-    margin-bottom: 30px;
-    position: absolute;
-    top:0px;
-    left:50%;
-    width: 50%;
-    height:80%
-    }
-
-    .instructions {
-    margin-top: 0px;
-    padding-top: 0px;
-    background: lightgrey;
-    height: 100%;
-    }
-
-    table{ width: 100% }
-
-    table td {
-    border-spacing: 2px;
-    }
-
-    body {
-    margin:0px;
-    background:white;
-    background-image:url('background-image.jpg');
-    font-family: Helvetica;
-    }
-    .header-cont {
-    width: 100%
-    position: fixed;
-    top: 0px;
-    }
-    .header-inner {
-    display: block;
-    width: 400px;
-    margin: 0 auto;
-    }
-    .header {
-    top: 0px;
-    position: fixed;
-    background: white;
-    padding: 0 10px 0 20px;
-    height:70px;
-    border:1px solid #CCC;
-    width:100%;
-    margin:0px auto;
-    box-shadow: 5px 5px 5px 2px lightgrey;
-    }
-    .footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:50px;
-    width:100%;
-    background:white;
-    font-family: Helvetica;
-    }
-    .footer-inner {
-    display: block;
-    width: 400px;
-    margin: 0 auto;
-    }
-
-    /* IE 6 */
-    * html .footer {
-    position:absolute;
-    top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ?
-    document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ?
-    document.documentElement.scrollTop : document.body.scrollTop))+'px');
-    }
-
-    .slider-container{
-    margin: 0 auto;
-    //position: fixed;
-    width:560px;
-    height:390px;
-    padding:20px;
-    border:1px solid gray;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
-    background: black;
-    text-align: center;
-    }
-    .slider_wrapper{
-    overflow: hidden;
-    position:relative;
-    height:280px;
-    top:auto;
-    }
-    #image_slider{
-
-    position: relative;
-    height: auto;
-    list-style: none;
-    overflow: hidden;
-    float: left;
-    /*Chrom default padding for ul is 40px */
-    padding:0px;
-    margin:0px;
-    }
-    #image_slider li{
-    position: relative;
-    float: left;
-    }
     .live {
-    cursor: pointer;
-    cursor: hand;
+      cursor: pointer;
+      cursor: hand;
     }
-    .nvgt{
-    position:absolute;
-    top: 120px;
-    height: 50px;
-    width: 30px;
-    opacity: 0.6;
+
+    .nvgt {
+      position:absolute;
+      top: 120px;
+      height: 50px;
+      width: 30px;
+      opacity: 0.6;
     }
+
     .nvgt:hover{
-    opacity: 0.9;
+      opacity: 0.9;
     }
-    #prev{
-    background: #000 url('https://dl.dropboxusercontent.com/u/65639888/image/prev.png') no-repeat center;
-    left: 0px;
+
+    #prev {
+      background: #000 url('images/prev.png') no-repeat center;
+      left: 0px;
     }
-    #next{
-    background: #000 url('https://dl.dropboxusercontent.com/u/65639888/image/next.png') no-repeat center;
-    right: 0px;
+
+    #next {
+      background: #000 url('images/next.png') no-repeat center;
+      right: 0px;
     }
-    #pager{
-    /* firefox has different center method. this doesn't work for fire fox */
-    /* not in the center*/
-    padding:0px;
-    position:relative;
-    height:50px;
-    margin:auto;
-    margin-top:10px;
+
+    #pager {
+      /* firefox has different center method. this doesn't work for firefox */
+      /* not in the center*/
+      padding:0px;
+      position:relative;
+      height:50px;
+      margin:auto;
+      margin-top:10px;
     }
-    #pager li{
-    padding: 0px;
-    margin:5px;
-    width:20px;
-    height:20px;
-    border:1px solid white;
-    color:white;
-    list-style: none;
-    opacity: 0.6;
-    float:left;
-    border-radius: 3px;
-    cursor: pointer;
+
+    #pager li {
+      padding: 0px;
+      margin:5px;
+      width:20px;
+      height:20px;
+      border:1px solid white;
+      color:white;
+      list-style: none;
+      opacity: 0.6;
+      float:left;
+      border-radius: 3px;
+      cursor: pointer;
     }
-    #pager li:hover{
-    opacity:0.9;
+
+    #pager li:hover {
+      opacity:0.9;
     }
 </style>
+
 <script>
   $('selector').loupe({
-      width: 200, // width of magnifier
-      height: 150, // height of magnifier
-      loupe: 'loupe' // css class for magnifier
+      width: 200, 
+      height: 150, 
+      loupe: 'loupe' 
   });
 
-  function set_images(images) {
+  function set_images(images, section_id) {
     $('.instructions').hide();
     $('.slider-container').show();
     var imageSlider = document.getElementById("image_slider");
@@ -203,7 +207,8 @@
     for (var i = 0; i < images.length; i++) {
       var urlAndDescrip = [];
       urlAndDescrip.push(images[i]);
-      urlAndDescrip.push("Descrip goes here");
+      var section = document.getElementById(section_id);
+      urlAndDescrip.push(section.innerHTML);
       urls.push(urlAndDescrip);
     }
 
@@ -220,13 +225,17 @@
       imageSlider.appendChild(li);
     }
     var pager = document.getElementById("pager");
-    while(pager.firstChild) {
+    while (pager.firstChild) {
       pager.removeChild(pager.firstChild);
     }
 
     init();
-    document.getElementById("big").onclick = function() { jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) };
-    document.getElementById("magnifier").onclick = function() { $('.mag').loupe(); };
+    document.getElementById("big").onclick = function() { 
+      jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) 
+    };
+    document.getElementById("magnifier").onclick = function() { 
+      $('.mag').loupe(); 
+    };
   }
 //1. set ul width 
 //2. image when click prev/next button
@@ -238,8 +247,7 @@ var prev, next;
 var currentPostion = 0;
 var currentImage = 0;
 
-
-function init(){
+function init() {
     ul = document.getElementById('image_slider');
     liItems = ul.children;
     imageNumber = liItems.length;
@@ -262,9 +270,9 @@ function init(){
     $('slider-container').hide();
 }
 
-function animate(opts){
+function animate(opts) {
   var start = new Date;
-  var id = setInterval(function(){
+  var id = setInterval(function() {
     var timePassed = new Date - start;
     var progress = timePassed / opts.duration;
     if (progress > 1){
@@ -272,14 +280,14 @@ function animate(opts){
     }
     var delta = opts.delta(progress);
     opts.step(delta);
-    if (progress == 1){
+    if (progress == 1) {
       clearInterval(id);
       opts.callback();
     }
   }, opts.delay || 17);
 }
 
-function slideTo(imageToGo){
+function slideTo(imageToGo) {
   var direction;
   var numOfImageToGo = Math.abs(imageToGo - currentImage);
   // slide toward left
@@ -288,29 +296,29 @@ function slideTo(imageToGo){
   currentPostion = -1 * currentImage * imageWidth;
   var opts = {
     duration:1000,
-    delta:function(p){return p;},
-    step:function(delta){
+    delta:function(p){ return p; },
+    step:function(delta) {
       ul.style.left = parseInt(currentPostion + direction * delta * imageWidth * numOfImageToGo) + 'px';
     },
-    callback:function(){currentImage = imageToGo;}  
+    callback:function() { currentImage = imageToGo; }  
   };
   animate(opts);
 }
 
-function onClickPrev(){
-  if (currentImage == 0){
+function onClickPrev() {
+  if (currentImage == 0) {
     slideTo(imageNumber - 1);
   }     
-  else{
+  else {
     slideTo(currentImage - 1);
   }    
 }
 
-function onClickNext(){
+function onClickNext() {
   if (currentImage == imageNumber - 1){
     slideTo(0);
   }    
-  else{
+  else {
     slideTo(currentImage + 1);
   }    
 }
@@ -323,8 +331,7 @@ function generatePager(imageNumber){
     pageNumber = document.createTextNode(parseInt(i + 1));
     li.appendChild(pageNumber);
     pagerDiv.appendChild(li);
-    // add event inside a loop, closure issue.
-    li.onclick = function(i){
+    li.onclick = function(i) {
       return function(){
         slideTo(i);
       }
@@ -366,30 +373,30 @@ window.onload = init;
     </div>
     <br>
 
-    <div class="live" onclick="set_images(['images/mirror-assembly/1.jpg'])">1. Wrap the elastic thread around corner
+    <div id="step1-1" class="live" onclick="set_images(['images/mirror-assembly/1.jpg'], 'step1-1')">1. Wrap the elastic thread around corner
         thread notch set A, and channel it through center notch A.
     </div>
     <br>
 
-    <div class="live" onclick="set_images(['images/mirror-assembly/2.jpg'])">2. To prepare the dynamic dampers to be
+    <div id="step1-2" class="live" onclick="set_images(['images/mirror-assembly/2.jpg'], 'step1-2')">2. To prepare the dynamic dampers to be
         slid onto the elastic thread, take two dynamic dampers and slide the carbon rod all the way through the hole in
         the center of each one.
     </div>
     <br>
 
-    <div class="live" onclick="set_images(['images/mirror-assembly/3.jpg'])">3. Take the 2 dynamic dampers and put the
+    <div id="step1-3' class="live" onclick="set_images(['images/mirror-assembly/3.jpg'], 'step1-3')">3. Take the 2 dynamic dampers and put the
         thread through the holes as you would thread a needle.
     </div>
     <br>
 
-    <div class="live" onclick="set_images(['images/mirror-assembly/*.jpg'])">4. Making sure the elastic thread is hooked
+    <div id="step1-4" class="live" onclick="set_images(['images/mirror-assembly/*.jpg'], 'step1-4')">4. Making sure the elastic thread is hooked
         into the center thread notch. Take the elastic thread and pull it across the tool-frame and onto the opposite
         center thread notch so it sits loosely.
     </div>
     <br>
 
-    <div class="live"
-         onclick="set_images(['images/mirror-assembly/5.jpg','images/mirror-assembly/5-1.jpg','images/mirror-assembly/5-3.jpg'])">
+    <div id="step1-5" class="live"
+         onclick="set_images(['images/mirror-assembly/5.jpg','images/mirror-assembly/5-1.jpg','images/mirror-assembly/5-3.jpg'], "step1-5")">
         5. To set the proper tension, pinch the elastic thread at spot (To be named) and pull the point at which you
         pinched to center notch B.  Then wrap the elastic thread around the corner notches many times to lock it in
         place. Tape the elastic thread in place at the corner.
