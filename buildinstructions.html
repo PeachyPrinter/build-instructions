@@ -223,6 +223,8 @@
       urls.push(urlAndDescrip);
     }
 
+    $('#slider-description').html(section.getAttribute('title'));
+
     for (var i = 0; i < images.length; i++) {
       var li = document.createElement("li");
       var imgElem = document.createElement("img");
@@ -382,11 +384,11 @@ window.onload = init;
     </div>
 
     <!-- each step must have a unique id, and must be immediately followed by the next step -->
-    <div id="step1-1" class="live" onclick="set_images(['images/mirror-assembly/1.jpg'], this)">1. Wrap the elastic thread around corner
+    <div id="step1-1" class="live" title="Wrap the elastic" onclick="set_images(['images/mirror-assembly/1.jpg'], this)">1. Wrap the elastic thread around corner
         thread notch set A, and channel it through center notch A.
     </div>
 
-    <div id="step1-2" class="live" onclick="set_images(['images/mirror-assembly/2.jpg'], this)">2. To prepare the dynamic dampers to be
+    <div id="step1-2" title="Prepare dynamic dampeners" class="live" onclick="set_images(['images/mirror-assembly/2.jpg'], this)">2. To prepare the dynamic dampers to be
         slid onto the elastic thread, take two dynamic dampers and slide the carbon rod all the way through the hole in
         the center of each one.
     </div>
@@ -1054,6 +1056,7 @@ window.onload = init;
         <ul id="pager"></ul>
         <img id="big" src="images/fullscreen2.png"/>
         <img id="magnifier" src="images/magnifier.png"/>
+        <div id="slider-description">Here's some text</div>
     </div>
     <!-- slider-container -->
 </div>
