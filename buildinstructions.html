@@ -361,6 +361,15 @@ window.onload = init;
 </script>
 </head>
 <body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+            js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+
 <div class='header'>
     <table border="0" width="100%">
         <tr>
@@ -1065,13 +1074,14 @@ window.onload = init;
 <div class="footer">
     <br/>
     <table border="0" width="100%">
-        <tr valign="middle">
+        <tr valign="top">
             <td width="25%">&nbsp;</td>
             <td align="middle"><span
                     onclick="window.open('http://peachyprinter-forum.com/phpbb')"> Beta Tester Forum</span></td>
             <td align="middle"><span
                     onclick="window.open('http://peachyprinter-forum.com/wiki')">Instructions Wiki</span></td>
             <td align="middle"><span onclick="window.open('http://peachyprinter.com">Official Website</span></td>
+            <td align="middle"><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div></td>
             <td width="25%">&nbsp;</td>
         </tr>
     </table>
