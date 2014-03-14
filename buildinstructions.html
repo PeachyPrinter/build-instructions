@@ -205,7 +205,10 @@
 
   function set_images(images, ref) {
     var section_id = ref.getAttribute('id');
-    var next_step = ref.nextElementSibling.getAttribute('id');
+    var next_step = "";
+    if (ref.nextElementSibling != null) {
+      next_step = ref.nextElementSibling.getAttribute('id');
+    }
     $('.instructions').hide();
     $('.slider-container').show();
     var imageSlider = document.getElementById("image_slider");
