@@ -194,11 +194,8 @@
 <script>
           require(["dojo/parser", 
           "dijit/layout/BorderContainer", 
-          "dijit/layout/TabContainer", 
-          "dijit/layout/AccordionContainer", 
           "dijit/layout/ContentPane", 
           "dojox/layout/ScrollPane",
-          "dojox/widget/TitleGroup",
           "dijit/TitlePane",
           "dijit/form/Button",
           "dijit/MenuBar",
@@ -206,7 +203,7 @@
           "dijit/PopupMenuBarItem",
           "dijit/DropDownMenu",
           "dijit/MenuItem",
-          "dijit/layout/AccordionPane", "dojo/domReady!"], function(parser) {
+          "dojo/domReady!"], function(parser) {
             parser.parse();
             dijit.byId('sections').set('href', 'section1.html');
           });
@@ -440,7 +437,7 @@ window.onload = init;
       </div>
     
     <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'leading'" style="width: 47%; background-image:url('background-image.jpg');" id="sections">
-      <div data-dojo-type=="dojox.layout.ScrollPane">
+      <div data-dojo-type="dojox.layout.ScrollPane">
       </div>
     </div>
 
