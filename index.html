@@ -28,11 +28,12 @@
       }
 
       .container .right {
+        overflow: hidden;
         text-align: center;
         background: white;
         margin-top: 72px;
         margin-bottom: 30px;
-        position: absolute;
+        position: fixed;
         top:0px;
         left:50%;
         width: 50%;
@@ -53,6 +54,7 @@
       }
 
       body {
+        overflow: hidden;
         margin:0px;
         background:white;
         background-image:url('background-image.jpg');
@@ -204,10 +206,15 @@
   }
 
   function set_images(images, ref) {
-    var section_id = ref.getAttribute('id');
+    var section_id = ""
+    if (typeof(ref) != "undefined") {
+      section_id = ref.getAttribute('id');
+    }
     var next_step = "";
-    if (ref.nextElementSibling != null) {
-      next_step = ref.nextElementSibling.getAttribute('id');
+    if (typeof(ref) != "undefined") {
+      if (ref.nextElementSibling != null) {
+        next_step = ref.nextElementSibling.getAttribute('id');
+      }
     }
     $('.instructions').hide();
     $('.slider-container').show();
@@ -222,11 +229,15 @@
       urlAndDescrip.push(images[i]);
       var section = document.getElementById(section_id);
       var onclickstr = "show_step('" + next_step + "')";
-      urlAndDescrip.push(section.innerHTML + "&nbsp;<a href='#' onclick=" + onclickstr + ">Next Step</a>");
+      if (section != null) {
+        urlAndDescrip.push(section.innerHTML + "&nbsp;<a href='#' onclick=" + onclickstr + ">Next Step</a>");
+      }
       urls.push(urlAndDescrip);
     }
 
-    $('#slider-description').html(section.getAttribute('title'));
+    if (section != null) {
+      $('#slider-description').html(section.getAttribute('title'));
+    }
 
     for (var i = 0; i < images.length; i++) {
       var li = document.createElement("li");
@@ -393,9 +404,9 @@ window.onload = init;
             <br>
             <br>
     </div>
-        <div id="step0-0" class="live" onclick="set_images([''], this)">1. Find a large, clean, well lit surface to work on.
+        <div id="step0-0">1. Find a large, clean, well lit surface to work on.
     </div>
-        <div id="step0-1" class="live" onclick="set_images([''], this)">2. Make sure you have access to the following tools: 
+        <div id="step0-1">2. Make sure you have access to the following tools: 
             <br>
 - Utility knife
             <br>
@@ -435,7 +446,7 @@ window.onload = init;
     <div id="step1-2" title="Prepare dynamic dampeners" class="live" onclick="set_images(['http://peachyprinter-forum.com/instructions/images/section2/TSF-2-1.jpg','http://peachyprinter-forum.com/instructions/images/section2/TSF-2-2.jpg'], this)">2. Clip Static Damper Mount B (Mirror frame mount B) to Mirror Frame B so that the 2 arrows (2 &rarr;) are on the same side and point at each other when snapped together.
     </div>
 
-    <div id='step1-3' class="live" onclick="set_images([''], this)">3. Disassemble the parts you just assembled.
+    <div id='step1-3' class="live" onclick="set_images(['images/default.png'], this)">3. Disassemble the parts you just assembled.
     </div>
 </div>
 
@@ -484,13 +495,13 @@ window.onload = init;
     </div>
       <div id="step2-9" class="live" onclick="set_images(['http://peachyprinter-forum.com/instructions/images/section3/MA-9-1.jpg'], this)">9. Cut the long end of the excess elastic thread to about 15 cm long (approximate).
     </div>
-      <div id="step2-10" class="live" onclick="set_images([''images/noimage.jpg''], this)">10. Repeat steps 6 - 8 so you have 2 of these.
+      <div id="step2-10" class="live" onclick="set_images(['images/noimage.jpg'], this)">10. Repeat steps 6 - 8 so you have 2 of these.
     </div>
       <div id="step2-11" class="live" onclick="set_images(['http://peachyprinter-forum.com/instructions/images/section3/MA-11-1.jpg','http://peachyprinter-forum.com/instructions/images/section3/MA-11-2.jpg'], this)">11. Put the elastic thread through the hole on one end of the acetate arrow so that the carbon rod is on the opposite face as the magnets.
     </div>
       <div id="step2-12" class="live" onclick="set_images(['http://peachyprinter-forum.com/instructions/images/section3/MA-12-1.jpg'], this)">12. Take the second piece of elastic thread and put it through the hole on the other end of the arrow, so the carbon rod is on the opposite face as the magnets. We will now call this a thread assembly.
     </div>
-      <div id="step2-13" class="live" onclick="set_images(['images/noimage.jpg'], this)">13. Repeat steps 1-12 so that you have two thread assemblies.
+      <div id="step2-13" class="live" onclick="set_images(['images/default.png'], this)">13. Repeat steps 1-12 so that you have two thread assemblies.
     </div>
 </div>
 <div id="Section4">
@@ -1083,17 +1094,7 @@ the Steel Ball should be hanging on the right side.
 </div>
 </div>
 <!-- left -->
-<div class='right'> <!-- fit parent -->
-    <div class="instructions">
-        <table border="0" height="100%">
-            <tr>
-                <td align="middle" style="height: 100%">
-                    Click on a step to view detailed instructional images :)
-                </td>
-            </tr>
-        </table>
-    </div>
-    <!-- instructions -->
+<div class="right"> <!-- fit parent -->
     <div class="slider-container">
         <div class="slider_wrapper">
             <ul id="image_slider">
@@ -1108,11 +1109,11 @@ the Steel Ball should be hanging on the right side.
         <ul id="pager"></ul>
         <img id="big" src="images/fullscreen2.png"/>
         <img id="magnifier" src="images/magnifier.png"/>
-        <div id="slider-description">Here's some text</div>
+        <div id="slider-description">&nbsp;</div>
     </div>
     <!-- slider-container -->
 </div>
-<!-- right -->
+
 </div>
 <div class="footer">
     <br/>
@@ -1132,7 +1133,7 @@ the Steel Ball should be hanging on the right side.
 </div>
 <script>
   $('.slider-container').hide();
-
+  set_images(['images/default.png']);
 </script>
 </body>
 </html>
