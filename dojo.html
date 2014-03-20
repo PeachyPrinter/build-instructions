@@ -398,8 +398,8 @@ window.onload = init;
 </head>
 <body class="claro" background="background-image.jpg">
 
-    <div data-dojo-type="dijit/layout/BorderContainer" style="width: 100%; height: 100%;">
-      <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+    <div id="bordercontainer" data-dojo-type="dijit/layout/BorderContainer" style="width: 100%; height: 100%;">
+      <div id="top-content" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
         <table border="0" width="100%">
             <tr>
                 <td align="center" colspan="3">
@@ -443,53 +443,52 @@ window.onload = init;
       <div data-dojo-type=="dojox.layout.ScrollPane">
       </div>
     </div>
-    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="background-image:url('background-image.jpg');">
 
-          <div class="slider-container">
-              <div class="slider_wrapper">
-                  <ul id="image_slider">
-                      <li><img class="mag"
-                               src="http://www.wallpaperswala.com/wp-content/gallery/funny-cat/cute_funny_cat_sliping_a_paper.jpg"
-                               width="760" height="280" title="Click for full-size image"></li>
-                  </ul>
-                  <span class="nvgt" id="prev"></span>
-                  <span class="nvgt" id="next"></span>
-              </div>
-              <!-- slider-wrapper -->
-              <ul id="pager"></ul>
-              <img id="big" src="images/fullscreen2.png"/>
-              <img id="magnifier" src="images/magnifier.png"/>
-              <div id="slider-description">&nbsp;</div>
+    <div id="center-content" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="background-image:url('background-image.jpg');">
+      <div class="slider-container">
+          <div class="slider_wrapper">
+              <ul id="image_slider">
+                  <li><img class="mag"
+                           src="http://www.wallpaperswala.com/wp-content/gallery/funny-cat/cute_funny_cat_sliping_a_paper.jpg"
+                           width="760" height="280" title="Click for full-size image"></li>
+              </ul>
+              <span class="nvgt" id="prev"></span>
+              <span class="nvgt" id="next"></span>
           </div>
-          <!-- slider-container -->
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
+          <!-- slider-wrapper -->
+          <ul id="pager"></ul>
+          <img id="big" src="images/fullscreen2.png"/>
+          <img id="magnifier" src="images/magnifier.png"/>
+          <div id="slider-description">&nbsp;</div>
+      </div>
+      <!-- slider-container -->
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
           js = d.createElement(s); js.id = id;
             js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
               fjs.parentNode.insertBefore(js, fjs);
               }(document, 'script', 'facebook-jssdk'));</script>
-
-          </div>
     </div>
-    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">
-<div class="footer">
-    <br/>
-    <table border="0" width="100%">
-        <tr valign="top">
-            <td width="25%">&nbsp;</td>
-            <td align="middle"><span
-                    onclick="window.open('http://peachyprinter-forum.com/phpbb')"> Beta Tester Forum</span></td>
-            <td align="middle"><span
-                    onclick="window.open('http://peachyprinter-forum.com/wiki')">Instructions Wiki</span></td>
-            <td align="middle"><span onclick="window.open('http://peachyprinter.com">Official Website</span></td>
-            <td align="middle"><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div></td>
-            <td width="25%">&nbsp;</td>
-        </tr>
-    </table>
-</div>
-</div>
+    <div id="bottom-content" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">
+      <div class="footer">
+          <br/>
+          <table border="0" width="100%">
+              <tr valign="top">
+                  <td width="25%">&nbsp;</td>
+                  <td align="middle"><span
+                          onclick="window.open('http://peachyprinter-forum.com/phpbb')"> Beta Tester Forum</span></td>
+                  <td align="middle"><span
+                          onclick="window.open('http://peachyprinter-forum.com/wiki')">Instructions Wiki</span></td>
+                  <td align="middle"><span onclick="window.open('http://peachyprinter.com">Official Website</span></td>
+                  <td align="middle"><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div></td>
+                  <td width="25%">&nbsp;</td>
+              </tr>
+          </table>
+      </div>
+    </div>
+  </div>
 
 <script>
 //  $('.slider-container').hide();
