@@ -28,6 +28,7 @@
 	top: 0;
 	border: 10px solid #fff;
 	background-repeat: no-repeat;
+        overflow: scroll;
 }
 
 #lbPrevLink, #lbNextLink {
