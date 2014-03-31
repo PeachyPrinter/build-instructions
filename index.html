@@ -508,6 +508,7 @@ window.onload = init;
     //alert("Pushing #" + section);
     window.history.pushState({"html":"Build Instructions","pageTitle":"Build Instructions"},"", "#" + section);
     dijit.byId('sections').set('href', section + '.html');
+    set_images(['images/default.png'], this);
   };
 
   dojo.ready(function() {
@@ -515,7 +516,6 @@ window.onload = init;
     if (window.location.href.indexOf("#") != -1) {
       specifiedSection = window.location.href.substring(window.location.href.indexOf("#") + 1);
     }
-    set_images(['images/default.png'], this);
     selectSection(specifiedSection);
   });
 </script>
