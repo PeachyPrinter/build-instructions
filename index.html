@@ -511,10 +511,11 @@ window.onload = init;
   };
 
   dojo.ready(function() {
-    var specifiedSection = "section1"
+    var specifiedSection = "section1";
     if (window.location.href.indexOf("#") != -1) {
       specifiedSection = window.location.href.substring(window.location.href.indexOf("#") + 1);
     }
+    set_images(['images/default.png'], this);
     selectSection(specifiedSection);
   });
 </script>
