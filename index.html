@@ -505,10 +505,9 @@ window.onload = init;
   set_images(['images/default.png']);
 
   function selectSection(section) {
-    //alert("Pushing #" + section);
+    set_images(['images/default.png'], this);
     window.history.pushState({"html":"Build Instructions","pageTitle":"Build Instructions"},"", "#" + section);
     dijit.byId('sections').set('href', section + '.html');
-    set_images(['images/default.png'], this);
   };
 
   dojo.ready(function() {
