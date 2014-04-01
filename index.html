@@ -527,6 +527,7 @@ window.onload = init;
     if (window.location.href.indexOf("#") != -1) {
       specifiedSection = window.location.href.substring(window.location.href.indexOf("#") + 1);
     }
+    if (specifiedSection == "") specifiedSection = "section1";
     selectSection(specifiedSection);
   });
 </script>
