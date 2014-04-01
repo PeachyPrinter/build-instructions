@@ -193,7 +193,6 @@
                 $(image).css({backgroundImage: "url(" + activeURL + ")", visibility: "hidden", display: ""});
                 $(sizer).width(preload.width);
                 $([sizer, prevLink, nextLink]).height(preload.height);
-                alert("Preload height:" + preload.height);
 
                 $(caption).html(images[activeImage][1] || "");
                 $(number).html((((images.length > 1) && options.counterText) || "").replace(/{x}/, activeImage + 1).replace(/{y}/, images.length));
