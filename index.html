@@ -261,8 +261,12 @@
       urlAndDescrip.push(images[i]);
       var section = document.getElementById(section_id);
       var onclickstr = "show_step('" + next_step + "')";
+      var nextStepLink = ""
+      if (next_step != "") {
+        nextStepLink = "<a href='#' onclick=" + onclickstr + ">Next Step</a>";
+      }
       if (section != null) {
-        urlAndDescrip.push(section.innerHTML + "&nbsp;<a href='#' onclick=" + onclickstr + ">Next Step</a>");
+        urlAndDescrip.push(section.innerHTML.split("\n")[0] + "&nbsp;" + nextStepLink);
       }
       urls.push(urlAndDescrip);
     }
