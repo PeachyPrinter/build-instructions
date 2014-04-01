@@ -505,9 +505,9 @@ window.onload = init;
   set_images(['images/default.png']);
 
   function selectSectionAndImage(section, image) {
-    set_images([image]);
     window.history.pushState({"html":"Build Instructions","pageTitle":"Build Instructions"},"", "#" + section);
     dijit.byId('sections').set('href', section + '.html');
+    set_images([image]);
   };
 
   function selectSection(section) {
