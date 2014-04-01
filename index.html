@@ -235,6 +235,9 @@
   }
 
   function set_images(images, ref) {
+    slideTo(0);
+    currentImage = 0;
+    //alert("Current image:" + currentImage);
     var section_id = ""
     if (typeof(ref) != "undefined") {
       section_id = ref.getAttribute('id');
@@ -287,7 +290,7 @@
 
     init();
     document.getElementById("big").onclick = function() { 
-      jQuery.slimbox(urls, 0, {loop: true, initialHeight: "90%", initialWidth: "90%" }) 
+      jQuery.slimbox(urls, 0, {loop: true, initialHeight: "50%", initialWidth: "90%" }) 
     };
     document.getElementById("magnifier").onclick = function() { 
       $('.mag').loupe(); 
