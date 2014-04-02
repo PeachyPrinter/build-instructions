@@ -22,13 +22,17 @@
 
         $(function() {
                 // Append the Slimbox HTML code at the bottom of the document
+                overlay = $('<div id="lbOverlay" />').click(close)[0];
+                center = $('<div id="lbCenter" />')[0];
+                bottomContainer = $('<div id="lbBottomContainer" />')[0];
                 $("body").append(
                         $([
-                                overlay = $('<div id="lbOverlay" />').click(close)[0],
-                                center = $('<div id="lbCenter" />')[0],
-                                bottomContainer = $('<div id="lbBottomContainer" />')[0]
+                                overlay
                         ]).css("display", "none")
                 );
+
+                $("#lbOverlay").append(center);
+                $("#lbOverlay").append(bottomContainer);
 
                 image = $('<div id="lbImage" />').appendTo(center).append(
                         sizer = $('<div style="position: relative;" />').append([
@@ -54,7 +58,7 @@
         $.slimbox = function(_images, startImage, _options) {
                 options = $.extend({
                         loop: false,                            // Allows to navigate between first and last images
-                        overlayOpacity: 0.8,                    // 1 is opaque, 0 is completely transparent (change the color in the CSS file)
+                        overlayOpacity: 1.0,                    // 1 is opaque, 0 is completely transparent (change the color in the CSS file)
                         overlayFadeDuration: 400,               // Duration of the overlay fade-in and fade-out animations (in milliseconds)
                         resizeDuration: 400,                    // Duration of each of the box resize animations (in milliseconds)
                         resizeEasing: "swing",                  // "swing" is jQuery's default easing
@@ -211,8 +215,8 @@
                         $(center).animate({width: centerWidth, marginLeft: -centerWidth/2}, options.resizeDuration, options.resizeEasing);
                 }
                 $(center).queue(function() {
-                        $(bottomContainer).css({width: centerWidth, top: top + centerHeight, marginLeft: -centerWidth/2, visibility: "hidden", display: ""});
-                        $(image).css({display: "none", visibility: "", opacity: ""}).fadeIn(options.imageFadeDuration, animateCaption);
+                        $(bottomContainer).css({width: centerWidth, top: 0, marginLeft: -centerWidth/2, visibility: "hidden", display: ""});
+                        $(image).css({display: "none", visibility: "", opacity: "1"}).fadeIn(options.imageFadeDuration, animateCaption);
                 });
         }
 
