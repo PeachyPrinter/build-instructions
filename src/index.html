@@ -1,0 +1,329 @@
+<html>
+  <head>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/slimbox2.js"></script>
+    <script type="text/javascript" src="js/jquery.loupe.min.js"></script>
+    <link rel="stylesheet" href="app/css/slimbox2.css" type="text/css" media="screen"/>
+    <script type="text/javascript" src="js/instructions.js"></script>
+    <link rel="stylesheet" href="app/resources/app.css"/>
+
+    <style media="screen" type="text/css">
+
+      .container .left{
+        margin-top: 84px;
+        margin-bottom: 30px;
+        margin-right: 100px;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-bottom: 30px;
+        width: 47%;
+        overflow-y: scroll;
+        height: 80%;
+        box-shadow: 5px 5px 5px 2px lightgrey;
+      }
+
+      .container .right {
+        overflow: hidden;
+        text-align: center;
+        background: white;
+        margin-top: 72px;
+        margin-bottom: 30px;
+        position: fixed;
+        top:0px;
+        left:50%;
+        height:80%
+      }
+
+      .section {
+        background: rgba(255,255,255,0.2);
+      }
+
+      .instructions {
+        margin-top: 0px;
+        padding-top: 0px;
+        background: lightgrey;
+        height: 100%;
+      }
+
+      table { width: 100% }
+
+      table td {
+        border-spacing: 2px;
+      }
+
+      body {
+        overflow: hidden;
+        margin:0px;
+        background:white;
+        background-image:url('app/images/background-image.jpg');
+        font-family: Helvetica;
+      }
+
+      .header {
+        top: 0px;
+        position: fixed;
+        background: white;
+        padding: 0 10px 0 20px;
+        height:70px;
+        border:1px solid #CCC;
+        width:100%;
+        margin:0px auto;
+        box-shadow: 5px 5px 5px 2px lightgrey;
+      }
+
+      .footer {
+        bottom:0px;
+        height:50px;
+        width:100%;
+        background:white;
+        font-family: Helvetica;
+      }
+
+      .footer span {
+        cursor: hand;
+      }
+
+      .footer-inner {
+        display: block;
+        width: 400px;
+        margin: 0 auto;
+      }
+
+      /* IE 6 */
+      * html .footer {
+        position:absolute;
+        top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ?
+        document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ?
+        document.documentElement.scrollTop : document.body.scrollTop))+'px');
+      }
+
+      .slider-container {
+        top: 80px;
+        margin: 0 auto;
+        width:560px;
+        height:390px;
+        padding:20px;
+        border:1px solid gray;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        box-sizing:border-box;
+        background: black;
+        text-align: center;
+      }
+
+      .slider_wrapper {
+        overflow: hidden;
+        position:relative;
+        height:280px;
+        top:auto;
+      }
+
+      #image_slider {
+        position: relative;
+        height: auto;
+        list-style: none;
+        overflow: hidden;
+        float: left;
+        /*Chrom default padding for ul is 40px */
+        padding:0px;
+        margin:0px;
+      }
+
+    #image_slider li {
+      position: relative;
+      float: left;
+    }
+
+    .live {
+      cursor: pointer;
+      cursor: hand;
+      padding-bottom: 30px;
+      background-image: url('app/images/camera-icon.png');
+      background-repeat: no-repeat;
+      background-position: left top;
+      padding-left: 38px;
+      border-style: dotted;
+      border-width: thin;
+      border-color: rgb(208, 203, 209);
+    }
+
+    .nvgt {
+      position:absolute;
+      top: 120px;
+      height: 50px;
+      width: 30px;
+      opacity: 0.6;
+    }
+
+    .nvgt:hover{
+      opacity: 0.9;
+    }
+
+    #prev {
+      background: #000 url('app/images/prev.png') no-repeat center;
+      left: 0px;
+    }
+
+    #next {
+      background: #000 url('app/images/next.png') no-repeat center;
+      right: 0px;
+    }
+
+    #pager {
+      /* firefox has different center method. this doesn't work for firefox */
+      /* not in the center*/
+      padding:0px;
+      position:relative;
+      height:50px;
+      margin:auto;
+      margin-top:10px;
+    }
+
+    #pager li {
+      padding: 0px;
+      margin:5px;
+      width:20px;
+      height:20px;
+      border:1px solid white;
+      color:white;
+      list-style: none;
+      opacity: 0.6;
+      float:left;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    #pager li:hover {
+      opacity:0.9;
+    }
+
+    .jump {
+        font-size: 40%;
+     }
+</style>
+
+</head>
+<body class="claro" background="app/images/background-image.jpg">
+  <script data-dojo-config="async: 1, tlmSiblingOfDojo: 0, isDebug: 1" src="dojo/dojo.js"></script> 
+
+    <div id="bordercontainer" data-dojo-type="dijit/layout/BorderContainer" style="width: 100%; height: 100%;">
+      <div id="top-content" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="overflow: hidden;">
+        <table border="0" width="100%">
+            <tr>
+                <td align="center" colspan="3">
+                    <span style="font-size: 175%; font-family: Helvetica">PEACHY PRINTER BUILD INSTRUCTIONS</span>
+                </td>
+            </tr>
+            <tr><td align="center"><span style="font-family: Helvetica">BETA VERSION - PP28</span></td>
+            </tr>
+          </table>
+        <div data-dojo-type="dijit/MenuBar" id="navMenu">
+          <div data-dojo-type="dijit/PopupMenuBarItem" style="width: 100%; overflow: hidden;">
+            <span style="width: 100%; overflow: hidden;">Choose a section</span>
+              <div data-dojo-type="dijit/DropDownMenu" id="fileMenu" >
+                <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section1'); }">Section 1: Preparing for the assembly process</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section2'); }">Section 2: Testing the snap-fit mirror frame</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section3'); }">Section 3: Assembling the Thread Assembly</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section4'); }">Section 4: Mounting the Thread Assemblies to the Mirror Frames</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section5'); }">Section 5: Adding the Spring Force Magnets and Cols to the Mirror Assembly</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section6'); }">Section 6: Mounting the Mirror Assemblies to the L Bracket</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section7'); }">Section 7: Assembling and Oiling the Static Dampers</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section8'); }">Section 8: Making the laser focus adjustable</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section9'); }">Section 9: Mounting the Laster to the L bracket</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section10'); }">Section 10: Mounting the Circuit</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section11'); }">Section 11: Hooking the Coils up to the Circuit</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section12'); }">Section 12: Assembling the safety switch</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section13'); }">Section 13: Mounting the Laser Assembly to the Main Hanger</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section14'); }">Section 14: Assembling the Internal Box</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section15'); }">Section 15: Assembling the External Housing</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section16'); }">Section 16: Assembling the Drip system</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section17'); }">Section 17: Installing the software</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section18'); }">Section 18: Preparing for Calibration</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section19'); }">Section 19: Tuning the Circuit</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section20'); }">Section 20: Calibrating The Peachy Printer</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section21'); }">Section 21: Cure Time Calibration Print</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section22'); }">Section 22: Using Cura to Generate Gcode</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section23'); }">Section 23: Your First Print!</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection('section24'); }">Section 24: Troubleshooting & FAQ</div>
+                </div>
+               </div>
+           </div>
+      </div>
+    
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'leading'" style="width: 47%; background-image:url('app/images/background-image.jpg');" id="sections">
+      <div data-dojo-type="dojox.layout.ScrollPane">
+      </div>
+    </div>
+
+    <div id="center-content" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="background-image:url('app/images/background-image.jpg');">
+      <div class="slider-container">
+          <div class="slider_wrapper">
+              <ul id="image_slider">
+                  <li><img class="mag"
+                           src="app/images/noimage.jpg"
+                           width="760" height="280" title="Click for full-size image"></li>
+              </ul>
+              <span class="nvgt" id="prev"></span>
+              <span class="nvgt" id="next"></span>
+          </div>
+          <!-- slider-wrapper -->
+          <ul id="pager"></ul>
+          <img id="big" src="app/images/fullscreen2.png"/>
+          <img id="magnifier" src="app/images/magnifier.png"/>
+          <div id="slider-description">&nbsp;</div>
+      </div>
+      <!-- slider-container -->
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+            js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+    </div>
+    <div id="bottom-content" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'">
+      <div class="footer">
+          <br/>
+          <table border="0" width="100%">
+              <tr valign="top">
+                  <td width="25%">&nbsp;</td>
+                  <td align="middle"><span
+                          onclick="window.open('http://forum.peachyprinter.com/')"> Beta Tester Forum</span></td>
+                  <td align="middle"><span
+                          onclick="window.open('http://peachyprinter-forum.com/wiki')">Instructions Wiki</span></td>
+                  <td align="middle"><span onclick="window.open('http://peachyprinter.com">Official Website</span></td>
+                  <td align="middle"><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div></td>
+                  <td width="25%">&nbsp;</td>
+              </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+<script>
+  set_images(['app/images/default.png']);
+
+  function selectSectionAndImage(section, image) {
+    window.history.pushState({"html":"Build Instructions","pageTitle":"Build Instructions"},"", "#" + section);
+    dijit.byId('sections').set('href', section + '.html');
+    set_images([image]);
+  };
+
+  function selectSection(section) {
+    window.history.pushState({"html":"Build Instructions","pageTitle":"Build Instructions"},"", "#" + section);
+    dijit.byId('sections').set('href', section + '.html');
+  };
+
+  dojo.ready(function() {
+    var specifiedSection = "section1";
+    if (window.location.href.indexOf("#") != -1) {
+      specifiedSection = window.location.href.substring(window.location.href.indexOf("#") + 1);
+    }
+    if (specifiedSection == "") specifiedSection = "section1";
+    selectSection(specifiedSection);
+  });
+</script>
+<script src="app/run.js"></script>
+</body>
+</html>
