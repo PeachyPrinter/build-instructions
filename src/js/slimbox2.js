@@ -58,7 +58,7 @@
         $.slimbox = function(_images, startImage, _options) {
                 options = $.extend({
                         loop: false,                            // Allows to navigate between first and last images
-                        overlayOpacity: 1.0,                    // 1 is opaque, 0 is completely transparent (change the color in the CSS file)
+                        overlayOpacity: 0.6,                    // 1 is opaque, 0 is completely transparent (change the color in the CSS file)
                         overlayFadeDuration: 400,               // Duration of the overlay fade-in and fade-out animations (in milliseconds)
                         resizeDuration: 400,                    // Duration of each of the box resize animations (in milliseconds)
                         resizeEasing: "swing",                  // "swing" is jQuery's default easing
@@ -84,7 +84,10 @@
                 $(center).css({top: Math.max(0, middle - (centerHeight / 2)), width: centerWidth, height: centerHeight, marginLeft: -centerWidth/2}).show();
                 compatibleOverlay = ie6 || (overlay.currentStyle && (overlay.currentStyle.position != "fixed"));
                 if (compatibleOverlay) overlay.style.position = "absolute";
-                $(overlay).css("opacity", options.overlayOpacity).fadeIn(options.overlayFadeDuration);
+                //$(overlay).css("opacity", options.overlayOpacity).fadeIn(options.overlayFadeDuration);
+                $(center).css("background-color", "rgba(255, 255, 255, 1.0)");
+                $(overlay).show();
+                $(overlay).css("background-color", "rgba(175, 179, 175, 0.6)");
                 position();
                 setup(1);
 
