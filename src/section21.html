@@ -16,12 +16,12 @@
     <h3>Section 21 - Cure Time Calibration Print
         <br>
         <br>
-        Congratulations!  You’re about to do your first actual print :)</h3>
+        Congratulations!  You're about to do your first actual print :)</h3>
         
-        <div id="section21-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> In this step you’ll find the ideal cure time (or laser speed). This is done by printing a corner and various speeds and then examining the print to determine the best cure time. If the laser moves too slowly, the resin gets exposed to too much light, resulting in a print that is overcured. Overcuring can cause a print to have very rough walls and sometimes even fail if the resin isn’t able to break it’s surface tension quick enough.  The ideal settings will result in a print that is still somewhat soft or squishy.  You can then fully cure the printer at a later time by setting it out in sunlight, or by using a curing station. This process must be done each time that the laser is changed, or when using different resin formulas (stiff, flex, wiggle).
+        <div id="section21-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> In this step you'll find the ideal cure time (or laser speed). This is done by printing a corner and various speeds and then examining the print to determine the best cure time. If the laser moves too slowly, the resin gets exposed to too much light, resulting in a print that is overcured. Overcuring can cause a print to have very rough walls and sometimes even fail if the resin isn't able to break it’s surface tension quick enough.  The ideal settings will result in a print that is still somewhat soft or squishy.  You can then fully cure the printer at a later time by setting it out in sunlight, or by using a curing station. This process must be done each time that the laser is changed, or when using different resin formulas (stiff, flex, wiggle).
 <br>
             <br>
-<b>Note:</b> Printing with PeachyJuice or MakerJuice Flex and Wiggle resins remains untested, so we recommend completing this section using PeachyJuice Stiff or MakerJuice SubG/SubG+ resin only.  If you’d like to be a part of testing how the Peachy Printer performs with the Wiggle and Flex resins, there will be a subforum for that mission soon!
+<b>Note:</b> Printing with PeachyJuice or MakerJuice Flex and Wiggle resins remains untested, so we recommend completing this section using PeachyJuice Stiff or MakerJuice SubG/SubG+ resin only.  If you'd like to be a part of testing how the Peachy Printer performs with the Wiggle and Flex resins, there will be a subforum for that mission soon!
         <br>
             <br>
 <b>Note:</b> This section has no images yet.</div>
@@ -53,7 +53,7 @@ Resin Warning: The resin is a mild skin irritant.  To be safe while handling res
         <br>
         This will generate gcode for your cure time calibration print.</div>
         
-        <div id="section21-2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. Convert the gcode you just generated to a wav file from the command line by typing <b>python gcode_wav_converter.py “tuning.dat” “exposure_test.gcode” “out.wav” “out.cue”</b> and pressing <b>Enter</b></div>
+        <div id="section21-2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. Convert the gcode you just generated to a wav file from the command line by typing <b>python gcode_wav_converter.py &quot;tuning.dat&quot; &quot;exposure_test.gcode&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and pressing <b>Enter</b></div>
         
         <div id="section21-3" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3. Remove your upper reservoir from the top of the external housing, and then remove the external housing.  Place your print base inside the lower reservoir,  Add some salt water to the lower reservoir, then add a small amount of resin on top of the salt water (just enough to completely cover the surface) by slowly pouring it down the side wall of the container (similar to how a beer would be poured).  Be sure that the surface level of the resin does not get above the wire mesh of your print base.   Put the lower reservoir inside the internal housing making sure the laser beam is hitting the center of the print base.You can now place the external housing back on, and the upper reservoir back on top of the printer.  Make sure that the drip feed still connects the two reservoirs.</div>
         
@@ -64,14 +64,14 @@ Resin Warning: The resin is a mild skin irritant.  To be safe while handling res
         
         <div id="section21-5" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5. Ensure that your microphone setting on the computer is set to 100% and your volume is also at 100%.</div>
         
-        <div id="section21-6" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6. From the command line type <b>python wav_player.py “Tuning.dat” “out.wav” “out.cue”</b> and press <b>Enter</b></div>
+        <div id="section21-6" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6. From the command line type <b>python wav_player.py &quot;Tuning.dat&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and press <b>Enter</b></div>
         
         <div id="section21-7" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7. Slowly turn on the drip valve and monitor the feedback on the screen.  The print will start automatically once the software detects the first drip.</div>
         
         <div id="section21-8" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8. If you set the drip rate to fast, the software will give you the following warning: “<b>Too fast:-------> X drips ahead</b>”.  If this happens re-adjust the clamp ring valve on the drip feed until the warning stops appearing. 
             <br>
             <br>
-            <b>Note:</b> A print generally won’t fail until the dripper is running 100-200 drips ahead.  In fact, it doesn’t hurt to have the drip rate running 5-25 drips ahead at all times.</div>
+            <b>Note:</b> A print generally won't fail until the dripper is running 100-200 drips ahead.  In fact, it doesn’t hurt to have the drip rate running 5-25 drips ahead at all times.</div>
         
         <div id="section21-9" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">9. You are now printing!  Watch and wait :)</div>
         
