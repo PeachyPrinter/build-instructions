@@ -1,4 +1,4 @@
-
+  <div class="buttons">
       <div data-dojo-type="dijit.form.Button">Previous Section
         <script type="dojo/method" data-dojo-event="onClick">
           selectSectionAndImage('section18', 'app/images/default.png');
@@ -10,11 +10,12 @@
           selectSectionAndImage('section20', 'app/images/parts-labelled.jpg');
         </script>
       </div>
+    </div>
 
     <div id="section19">
     <h3>Section 19 - Tuning the Circuit</h3>
 
-        <div id="section19-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> In this section we will adjust the circuit so that when it receives a “zero” signal from your computer, it in turn sends 0.0 volts to the coils. As you will see we have some specific adjustment spots on the circuit for this purpose.
+        <div id="section19-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> In this section we will adjust the circuit so that when it receives a &quot;zero&quot; signal from your computer, it in turn sends 0.0 volts to the coils. As you will see we have some specific adjustment spots on the circuit for this purpose.
 <br>
             <br>
 <b>Note:</b> If you start using a different computer to drive the printer after tuning the circuit, you will have to re-tune the circuit to the new computer.
@@ -43,21 +44,21 @@
 <h3>Instruction Set A - Without a Voltmeter</h3>
 
     <div id="section19-1a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1A.  Unplug the two cables going to the USB ports on your computer.</div>
-<div id="section19-2a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2A. Remove the external housing, unmount the printer from the internal box, and set it down on the table. Disconnect the laser from the circuit before starting to avoid the hazards of the laser turning on. Connect the printer to your computer with the two power cables going to your computer’s USB ports, and the audio cable going to your computer’s headphone jack. </div>
+<div id="section19-2a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2A. Remove the external housing, unmount the printer from the internal box, and set it down on the table. Disconnect the laser from the circuit before starting to avoid the hazards of the laser turning on. Connect the printer to your computer with the two power cables going to your computers USB ports, and the audio cable going to your computers headphone jack. </div>
 <div id="section19-3a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3A. Launch calibrate-main.py</div>
-<div id="section19-4a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4A. In the “shape: pull down menu change the shape to “center”. Pull the audio jack out of your computer to check that the software is  playing a signal.  You should hear a high pitched tone, if so then plug the audio cable back in.</div>
+<div id="section19-4a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4A. In the “shape: pull down menu change the shape to &quot;center&quot;. Pull the audio jack out of your computer to check that the software is  playing a signal.  You should hear a high pitched tone, if so then plug the audio cable back in.</div>
 <div id="section19-5a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5A. Open your computer’s advanced volume settings.  Ensure that the master volume is at 100% and that the individual program volume for the calibration app is at 100% as well.  
     <br>
     <br>
     <b>Note:</b> Make sure that you never use gain.  Every time you use your printer, the volume settings must be the same as they were when you calibrated.</div>
-<div id="section19-6a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6A. Remove the coil lead from screw terminal 1 on the circuit, trace the lead back to the mirror assembly it comes from. Take a look at the mirror on that assembly and make note of it’s natural resting position. The surface of the mirror should be level with the surface of the mirror frame (if it’s not you’ll have to adjust it with the spring force adjustment tube).
+<div id="section19-6a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6A. Remove the coil lead from screw terminal 1 on the circuit, trace the lead back to the mirror assembly it comes from. Take a look at the mirror on that assembly and make note of its natural resting position. The surface of the mirror should be level with the surface of the mirror frame (if it's not you’ll have to adjust it with the spring force adjustment tube).
 <br>
 <br>
-<b>Tip:</b> Looking at a reference point in the reflection of the mirror before reconnecting the lead is a great way to tell how far the mirror moves when the coil gets power, and to see if you’ve adjusted it back to it’s natural resting position.</div>
-<div id="section19-7a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7A. Reconnect the coil lead to screw terminal 1, then adjust VR1 until the mirror is in it’s natural resting position (the same position it was when the lead was not connected).  
+<b>Tip:</b> Looking at a reference point in the reflection of the mirror before reconnecting the lead is a great way to tell how far the mirror moves when the coil gets power, and to see if you’ve adjusted it back to it's natural resting position.</div>
+<div id="section19-7a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7A. Reconnect the coil lead to screw terminal 1, then adjust VR1 until the mirror is in it's natural resting position (the same position it was when the lead was not connected).  
 <br>
     <br>
-<b>Note:</b> If adjusted perfectly, the mirror should not move at all when you momentarily make a connection by tapping the coil lead to screw terminal 1.  The more the mirror jumps the further it is away from being zeroed, so get it as close as you can (it doesn’t have to be perfect, but it shouldn’t move much). When a printer’s circuit is not zeroed to that specific computer, it may turn the laser off for a portion of it’s path during a print, or the laser may never come on at all.</div>
+<b>Note:</b> If adjusted perfectly, the mirror should not move at all when you momentarily make a connection by tapping the coil lead to screw terminal 1.  The more the mirror jumps the further it is away from being zeroed, so get it as close as you can (it doesn’t have to be perfect, but it shouldn't move much). When a printer's circuit is not zeroed to that specific computer, it may turn the laser off for a portion of it's path during a print, or the laser may never come on at all.</div>
 <div id="section19-8a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8A. Repeat with screw terminal 3, the other mirror assembly, and VR2.</div>
 
 <h3>Instruction set B - with a voltmeter</h3>
