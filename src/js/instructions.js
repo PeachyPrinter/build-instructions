@@ -77,7 +77,8 @@
       $('.mag').loupe(); 
     };
     document.getElementById("camera").onclick = function() {
-     window.open(urlAndDescrip[currentImage]);
+      var img = $('.mag')[currentImage];
+      window.open(img.src);
     };
   }
 //1. set ul width 
