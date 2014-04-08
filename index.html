@@ -1,0 +1,720 @@
+<html>
+  <head>
+    <style media="screen" type="text/css">
+      .container {
+        height: 300px;
+        display: table;
+        width: 100%;
+        position:relative;
+        margin: 70px auto;
+      }
+
+      .container .left{
+        width: 50%;
+        overflow-y: auto;
+        height: 100%; 
+      }
+
+      .container .right{
+        position: absolute;
+        top:0px;
+        left:50%;
+        width: 50%;
+        height:400px;
+       }
+
+       table{ width: 100% }
+
+     table td {
+       border-spacing: 2px;
+     }
+
+     body {
+       margin:0px;
+       background:white;
+     }
+     .header-cont {
+       width: 100%
+       position: fixed;
+       top: 0px;
+     }
+     .header-inner {
+       display: block;
+       width: 400px;
+       margin: 0 auto;
+     }
+     .header {
+       top: 0px;
+       position: fixed;
+       background: white;
+       padding: 0 10px 0 20px;
+       height:30px;
+       border:1px solid #CCC;
+       width:100%;
+       margin:0px auto;
+     }
+     .footer {
+       position:fixed;
+       left:0px;
+       bottom:0px;
+       height:30px;
+       width:100%;
+       background:lightgrey;
+     }
+     .footer-inner {
+       display: block;
+       width: 400px;
+       margin: 0 auto;
+     }
+
+     /* IE 6 */
+     * html .footer {
+       position:absolute;
+       top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+     }
+
+
+.slider-container{
+        position: fixed;
+	width:800px;
+	height:400px;
+	padding:20px;
+	border:1px solid gray;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	background: black;	
+	text-align: center;
+}
+.slider_wrapper{
+	overflow: hidden;
+	position:relative;
+	height:280px;
+	top:auto;
+}
+#image_slider{
+
+	position: relative;
+	height: auto;
+	list-style: none;
+	overflow: hidden;
+	float: left;
+	/*Chrom default padding for ul is 40px */
+	padding:0px;
+	margin:0px;
+}
+#image_slider li{
+	position: relative;
+	float: left;
+}
+        .live {
+  cursor: pointer;
+  cursor: hand;
+ }
+.nvgt{
+	position:absolute;
+	top: 120px;
+	height: 50px;
+	width: 30px;
+	opacity: 0.6;
+}
+.nvgt:hover{
+	opacity: 0.9;
+}
+#prev{
+	background: #000 url('https://dl.dropboxusercontent.com/u/65639888/image/prev.png') no-repeat center;
+	left: 0px;
+}
+#next{
+	background: #000 url('https://dl.dropboxusercontent.com/u/65639888/image/next.png') no-repeat center;
+	right: 0px;
+}
+#pager{
+	/* firefox has different center method. this doesn't work for fire fox */
+	/* not in the center*/
+	padding:0px;
+	position:relative;
+	height:50px;
+	margin:auto;
+	margin-top:10px;
+}
+#pager li{
+	padding: 0px;
+	margin:5px;
+	width:20px;
+	height:20px;
+	border:1px solid white;
+	color:white;
+	list-style: none;
+	opacity: 0.6;
+	float:left;
+	border-radius: 3px;
+	cursor: pointer;
+}
+#pager li:hover{
+	opacity:0.9;
+}
+</style>
+<script>
+
+  function set_images(images) {
+    var imageSlider = document.getElementById("image_slider");
+    while(imageSlider.firstChild) {
+      imageSlider.removeChild(imageSlider.firstChild);
+    }
+    for (var i = 0; i < images.length; i++) {
+      var li = document.createElement("li");
+      var imgElem = document.createElement("img");
+      imgElem.src = images[i];
+      imgElem.width = 760;
+      imgElem.height = 280;
+      imgElem.onclick = "window.open('" + images[i] + "')";
+      li.appendChild(imgElem);
+      imageSlider.appendChild(li);
+    }
+    var pager = document.getElementById("pager");
+    while(pager.firstChild) {
+      pager.removeChild(pager.firstChild);
+    }
+    init();
+  }
+//1. set ul width 
+//2. image when click prev/next button
+var ul;
+var liItems;
+var imageNumber;
+var imageWidth;
+var prev, next;
+var currentPostion = 0;
+var currentImage = 0;
+
+
+function init(){
+    ul = document.getElementById('image_slider');
+    liItems = ul.children;
+    imageNumber = liItems.length;
+    imageWidth = liItems[0].children[0].clientWidth;
+    ul.style.width = parseInt(imageWidth * imageNumber) + 'px';
+    prev = document.getElementById("prev");
+    next = document.getElementById("next");
+    generatePager(imageNumber);
+    prev.onclick = function(){ onClickPrev();};
+    next.onclick = function(){ onClickNext();};
+}
+
+function animate(opts){
+	var start = new Date;
+	var id = setInterval(function(){
+		var timePassed = new Date - start;
+		var progress = timePassed / opts.duration;
+		if (progress > 1){
+			progress = 1;
+		}
+		var delta = opts.delta(progress);
+		opts.step(delta);
+		if (progress == 1){
+			clearInterval(id);
+			opts.callback();
+		}
+	}, opts.delay || 17);
+}
+
+function slideTo(imageToGo){
+	var direction;
+	var numOfImageToGo = Math.abs(imageToGo - currentImage);
+	// slide toward left
+
+	direction = currentImage > imageToGo ? 1 : -1;
+	currentPostion = -1 * currentImage * imageWidth;
+	var opts = {
+		duration:1000,
+		delta:function(p){return p;},
+		step:function(delta){
+			ul.style.left = parseInt(currentPostion + direction * delta * imageWidth * numOfImageToGo) + 'px';
+		},
+		callback:function(){currentImage = imageToGo;}	
+	};
+	animate(opts);
+}
+
+function onClickPrev(){
+	if (currentImage == 0){
+		slideTo(imageNumber - 1);
+	} 		
+	else{
+		slideTo(currentImage - 1);
+	}		
+}
+
+function onClickNext(){
+	if (currentImage == imageNumber - 1){
+		slideTo(0);
+	}		
+	else{
+		slideTo(currentImage + 1);
+	}		
+}
+
+function generatePager(imageNumber){	
+	var pageNumber;
+	var pagerDiv = document.getElementById('pager');
+	for (i = 0; i < imageNumber; i++){
+		var li = document.createElement('li');
+		pageNumber = document.createTextNode(parseInt(i + 1));
+		li.appendChild(pageNumber);
+		pagerDiv.appendChild(li);
+		// add event inside a loop, closure issue.
+		li.onclick = function(i){
+			return function(){
+				slideTo(i);
+			}
+		}(i);
+	}	
+	var computedStyle = document.defaultView.getComputedStyle(li, null);
+	//border width 1px; offsetWidth = 22
+	var liWidth = parseInt(li.offsetWidth);
+	var liMargin = parseInt(computedStyle.margin.replace('px',""));
+	pagerDiv.style.width = parseInt((liWidth + liMargin * 2) * imageNumber) + 'px';
+}
+window.onload = init;
+</script>
+</head>
+<body>
+  <div class='header'>
+    <div class='header-inner'>
+      <strong>PEACHY PRINTER BUILD INSTRUCTIONS</strong>
+    </div>
+  </div>
+    <div class='container'>
+          <div class='left'> 
+            <div id="Section1">
+               <h3>Section 1 - Assembling The Mirror Assemblies</h3>
+                <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+               <div class="live" onclick="set_images(['mirror-assembly/1.jpg'])">1. Wrap the elastic thread around corner thread notch set A, and channel it through center notch A.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/2.jpg'])">2. To prepare the dynamic dampers to be slid onto the elastic thread, take two dynamic dampers and slide the carbon rod all the way through the hole in the center of each one.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/3.jpg'])">3. Take the 2 dynamic dampers and put the thread through the holes as you would thread a needle.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">4. Making sure the elastic thread is hooked into the center thread notch. Take the elastic thread and pull it across the tool-frame and onto the opposite center thread notch so it sits loosely.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/5.jpg','mirror-assembly/5-1.jpg','mirror-assembly/5-3.jpg'])">5. To set the proper tension, pinch the elastic thread at spot (To be named) and pull the point at which you pinched to center notch B.  Then wrap the elastic thread around the corner notches many times to lock it in place. Tape the elastic thread in place at the corner.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/6.jpg'])">6. Take 2 carbon rods (pencil leads) and place one over each + and - spot on the right and left sides of the tool-frame. Cut the rods at each + and - spot using a razor blade. Your carbon rod should now be the exact same length as the distance between spot + and - on their respective sides of the tool-frame. IMPORTANT - The + and - marks on side A and B of the tool-frame are different lengths. You must cut one carbon rod on side A and one carbon rod on side B, and those carbon rods must stay on their respective sides.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/7.jpg'])">7. Slide the dynamic dampers to the (appropriate) marks on the tool-frame.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">8. Sharpen one end of each carbon rod by rubbing them at an angle against a piece of (XXX grit) sandpaper.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/9.jpg'])">9. Making sure not to damage the dynamic damper, push the sharp end of the shorter carbon rod through the hole in the dynamic damper on the Side A of the tool-frame. Be careful not to fold it bend, and make sure the dynamic damper stays at the (appropriate) mark.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/10.jpg'])">10. Repeat step 9 with the longer carbon rod on Side B of the tool-frame.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/11.jpg'])">11. Slide the thread hooks onto the tool-frame on the thread hook marks. Ensure that the thin wall of each thread hook is facing up.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/12.jpg','mirror-assembly/12-1.jpg','mirror-assembly/12-2.jpg'])">12. Glue the elastic thread to the thread hooks, you must only put glue on the thread hook, do not let any glue get on the thread past the end of the thread hook. If you do get any glue on the thread past the thread hook the elastic thread will lose some elasticity and your printer may not work properly.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/13.jpg','mirror-assembly/13-1.jpg'])">13. With the carbon rod between the C and E marks, glue 5mm of each end of the carbon rod to the elastic thread. Again make sure not to allow any glue to get on the elastic thread outside the edges. </div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/14.jpg','mirror-assembly/14-1.jpg'])">14. Take 2 (two) of the smaller magnets and stack them, they will naturally want to do this. Pinch the smaller magnets in between the tweezers tips. While doing so, use your fingernail to split the smaller magnets, making sure they are still aligned in a way they are attracted to each other.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/15.jpg','mirror-assembly/15-1.jpg','mirror-assembly/15-2.jpg','mirror-assembly/15-3.jpg','mirror-assembly/15-4.jpg'])">15. Put a small dab of glue on two smaller magnets, and carefully glue them onto the elastic thread at point +, against the end of the carbon rod. Touch the elastic thread with one magnet first to make sure it is in place, then crimp the thread between the magnets. If there is a small space between the magnets and the end of the carbon rod, apply glue over it to bridge the gap. Never pinch the carbon rod between the magnets, because if your magnets get glued there your printer will not work properly.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">16. Repeat step 15 on the other end.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/17.jpg'])">17. Take the long mirror and put a line of glue on the backside of the long mirror.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/18.jpg'])">18. Making sure the surface of the long mirror is parallel to the long end of the magnets, glue the long mirror to the end of the longer carbon rod at the marked spot.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">19. Repeat steps 17-18 with the small mirror on the shorter carbon rod.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/21.jpg','mirror-assembly/21-2.jpg'])">21. Cut the elastic thread at the outer edge of each thread hook.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/22.jpg'])">22. Remove the thread hooks from the tool-frame, you will now have 2 of what we will call the thread assembly.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/23.jpg'])">23. Take the shorter thread assembly and put the thread hooks onto the outside edge of the shorter frame, so that the elastic thread is centered within the frame. Do the same with the longer thread assembly and frame.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/24.jpg'])">24. Take 2 coils and cut the excess paper off one side of each coil while being extremely careful not to cut the wire of the coil.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">25. Take the coils and sand the end of the wires, and continue to sand down about 1 inch length of the coil wire. Sand gently about 25 strokes on all “sides” of the wire.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/26.jpg'])">26. Take a dab of glue and glue one coil to mirror assembly frame A where shown, making sure the smaller magnets do not touch the coil when it turns.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/27.jpg','mirror-assembly/27-1.jpg'])">27. Grab your spring force adjustment plates and glue a square of acetate plastic to each one as shown.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/28.jpg','mirror-assembly/28-2.jpg'])">28. Clip the spring force adjustment plate onto mirror assembly frame A, overtop of the hash marks near the end of the frame, above the edge of the coil on the bottom side of the mirror assembly frame.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/29.jpg'])">29. Take the static damper mounting plate, and glue it to the mirror assembly frame on the notches just off from center.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/30.jpg','mirror-assembly/30-1.jpg'])">30. Cut 4 (four) 1 cm pieces of neon tubing, sit them down so they are standing on their ends, and split one wall of each piece of the neon tubing.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/31.jpg'])">31. Put a piece of neon tubing on each side of the static damper, aligned with the bottom of the hole near the flat end as shown.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">32. Lay the static damper down, and cut a V shape into the two neon tubes from the rounded end of the static damper.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/33.jpg','mirror-assembly/33-1.jpg','mirror-assembly/33-2.jpg'])">33. Flip the static damper over, and apply a line of glue along the peak of each hose on the backside of the static damper, gluing it to the static damper mounting plate.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/34.jpg','mirror-assembly/34-1.jpg'])">34. Take one lead wire of the coil and wrap it around one of the screw terminal posts</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">35. Take the other lead wire of the coil and wrap it around the other screw terminal post.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">36. Stack your larger magnets on top of one another so that they will freely rotate, colour all the sides but not the ends with a permanent marker.</div>
+                <br>
+<!--#37 IS USING 36.JPG-->
+                <div class="live" onclick="set_images(['mirror-assembly/36.jpg'])">37. Put one of the larger magnets on one side of the acetate plastic, and a nut on the other, so the larger magnet is sitting directly over the coil and its north and south poles are aligned with the smaller magnets north and south poles below.</div>
+                <br>
+                <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">38. Take one screw terminal post and insert it into…
+                <br>
+                    Add "Testing The Frame" instructions here.
+                </div>
+           </div>
+           <div id="Section2">
+               <h3>Section 2 - Assembling Mirror Frame B</h3>
+               <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+               <div class="live" onclick="set_images(['mirror-assembly/26.jpg'])">1. Take a dab of glue and glue one coil to mirror assembly frame B where shown, making sure the smaller magnets do not touch the coil when it turns.</div>
+                <br>
+               <div class="live" onclick="set_images(['mirror-assembly/28.jpg'])">2. Clip the spring force adjustment plate onto mirror assembly frame B, overtop of the G and the square across from it. Near the end of the frame, above the edge of the coil on the bottom side of the mirror assembly frame.</div>
+                <br>
+               <div class="live" onclick="set_images(['mirror-assembly/34.jpg'])">3.Take one lead wire of the coil and wrap it around one of the screw terminal posts</div>
+                <br>
+               <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">4.Take the other lead wire of the coil and wrap it around the other screw terminal post.</div>
+                <br>
+               <div class="live" onclick="set_images(['mirror-assembly/36.jpg'])">5. Put one of the larger magnets on one side of the acetate plastic, and a nut on the other, so the larger magnet is sitting directly over the coil and its north and south poles are aligned with the smaller magnets north and south poles below.</div>
+                <br>
+               <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">6. Take one screw terminal post and insert it into …
+
+Add testing the Frame instructions here</div>
+                <br>
+         </div>
+              <div id="Section3">
+<!--FIX - img names on server-->
+               <h3>Section 3 - Gluing the Mirror Assemblies to the L bracket</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">1. Take Frame A and glue the F and the square to the L bracket as shown.</div>
+                <br>
+                  <div class="live" onclick="set_images(['mirror-assembly/*.jpg'])">2. Take the Static Damper mount and glue it to the L bracket and Frame A as shown</div>
+                <br>
+                  <div class="live" onclick="set_images(['jpg'])">Add circuit tuning instructions here. </div>
+                <br>
+                  <div class="live" onclick="set_images(['jpg'])">1. Glue mirror assembly (A or B have to fix this is the shorter mirrored mirror assembly, should be A but its called B) to the inside of the L Bracket so that the letter _ on the mirror assembly and the letter _ on the L Bracket align.</div>
+                <br>
+  </div>
+              <div id="Section4">
+               <h3>Section 4 - Tuning The Circuit</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['jpg'])">PASTE INSTRUCTIONS HERE</div>
+                <br>
+  </div>
+              <div id="Section5">
+               <h3>Section 5 - Oiling The Dampeners</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['oiling-dampers/*.jpg'])">1. Take the dripper filled with oil and cut the very tip off the end so it is open.</div>
+                <br>
+                  <div class="live" onclick="set_images(['oiling-dampers/OD-2.jpg','oiling-dampers/OD-2.jpg'])">2. Put a small dab of oil in between the static and dynamic damper, making sure not to drip oil elsewhere on your printer</div>
+                <br>
+  </div>
+              <div id="Section6">
+<!--FIX - text needs work-->
+               <h3>Section 6 - Making The Laser Focus Adjustable</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['jpg'])">PASTE INSTRUCTIONS HERE</div>
+                <br>
+  </div>
+              <div id="Section7">
+               <h3>Section 7 - Making The Laser Aperture</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['laser-aperture/AP-1.jpg'])">1. Take a piece of tin foil and glue it over the end of the focus ring.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-aperture/AP-2.jpg'])">2. Cut the excess tin foil around the end of the laser.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-aperture/AP-3.jpg'])">3. Put a dot in the center of the foil with a fine tip marker.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-aperture/AP-4.jpg','laser-aperture/AP-4.jpg'])">4. Poke a hole in the center of the dot with your carbon fibre rod</div>
+                <br>
+  </div>
+              <div id="Section8">
+<!--FIX - needs written instructions - img names on server-->
+               <h3>Section 8 - Assembling The Internal Assembly</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['jpg'])">PASTE INSTRUCTIONS HERE</div>
+                <br>
+  </div>
+              <div id="Section9">
+               <h3>Section 9 - Mounting The Laser to The L Bracket</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-1.jpg'])">1. Take the neon tubing and cut it it into 6 (six) pieces approximately 6mm each.  Tip: If you measure the first cut, you can then use that piece as a reference for the other 5 (five).</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-2.jpg'])">2. Stand each piece of neon tubing on its end and use a sharp knife to split one wall of the neon tubing down the center.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-3.jpg','laser-mount/ML-3-1.jpg'])">3. Take both laser mounting brackets and put the 6mm pieces of neon tubing onto the outside ring of each laser mounting bracket in the appropriate spots. Roll them around so they now hug the inside wall of the ring.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-4.jpg'])">4. Put a small dab of glue onto each piece of neon tubing, gluing it to the laser mounting brackets.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-5.jpg'])">5. Slide the two wires coming out of the laser through the hole in the center of the rear laser disc.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-6.jpg'])">6. Apply glue around the backside of the laser.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-7.jpg','laser-mount/ML-7-1.jpg'])">7. Slide the rear laser disc up to the back of the laser to glue it in place. Ensure that the disc is centered on the back of the laser.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-8.jpg','laser-mount/ML-8-1.jpg'])">8. Slide the focus ring into one of the laser mounting brackets. Ensure that the neon tubes are gripping the focus ring of the laser. This will allow you to adjust the focus by spinning the body of the laser.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-9.jpg'])">9. Slide the laser mounting bracket and laser onto the L Bracket. Then slide the other laser mounting bracket on until it pinches the laser between the two mounting brackets.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-10.jpg'])">10. Glue the first laser mounting bracket while it is butted up against mirror Frame B.</div>
+                <br>
+                  <div class="live" onclick="set_images(['laser-mount/ML-11.jpg'])">11. Glue the second laser mounting bracket while applying pressure on it towards the laser by pinching the back bracket, and the front of the laser between your fingers.</div>
+                <br>
+  </div>
+              <div id="Section10">
+<!--FIX - img names on server-->
+               <h3>Section 10 - Lining Up The Laser and Mirrors</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['aligning-laser-mirrors/*.jpg'])">PASTE INSTRUCTIONS HERE</div>
+                <br>
+  </div>
+              <div id="Section11">
+<!--FIX - right order? img?-->
+               <h3>Section 11 - Installing The 2nd Static Damper</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['jpg'])">1. Glue the second Static Damper to the L Bracket where shown.</div>
+                <br>
+  </div>
+              <div id="Section12">
+               <h3>Section 12 - Assembling The Exernal Housing</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- Neon Tubing
+                  <br>
+- Utility Knife
+                      <br>
+- Glue
+                      <br>
+- Glue Stick
+                      <br>
+- The External Housing Plates
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['outer-housing/1.jpg'])">1. Take a long piece of neon tubing and cut 2 pieces 8 cm long</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/2.jpg','outer-housing/2-1.jpg'])">2. Split one wall of each neon tubing all the way down the center.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/3.jpg','outer-housing/3-1.jpg'])">3. Put the neon tubing along the edges of the sliding door.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/4.jpg'])">4. Put glue along the sides of the opening in the sliding door plate.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/5.jpg'])">5. Position the sliding door so that the neon tubes makes contact with the glue you lied down on either side of the opening on the sliding door plate. Make sure you glue only where the sliding door is, this makes sure that the neon tubes are straight and properly spaced. When you do this the door should be in the closed position, covering the hole in the sliding door plate. Add extra glue along the sides of the neon tubing, gluing it to the sliding door plate. Make sure not to glue the Neon tubing to the sliding door.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/6.jpg','outer-housing/6-1.jpg'])">6. Allow the glue to set completely, then slide the door so it is only covering 1cm of the hole in the sliding door plate, then glue the Neon tubing to the sliding door plate again.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/7.jpg'])">7. Slide the sliding door plate to the end of the neon tubing, and finish gluing the neon tubing to the sliding door plate.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/8.jpg'])">8. Position the bottom plate so that the sliding door is sitting to the left of the opening.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/9.jpg','outer-housing/9-2.jpg'])">9. Take Side Plate 1 (The one with the L cut in it) and apply glue to the edge nearest the long side of the L.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/10.jpg','outer-housing/10-1.jpg','outer-housing/10-3.jpg'])">10. Place the glued edge down on top of the bottom plate along it’s side. Use the Front plate as a square by butting it up against Side Plate 1 to ensure that it is sitting up at a 90 degree angle from the bottom plate. Let the glue set fully.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/11.jpg','outer-housing/11-1.jpg'])">11. Take Side Plate 2 (The one without the L cut in it) and apply glue to the a long edge.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/12.jpg','outer-housing/12-1.jpg'])">12. Place the glued edge down on top of the bottom plate along it’s side. Use the Front plate as a square by butting it up against Side Plate 1 to ensure that it is sitting up at a 90 degree angle from the bottom plate. Let the glue set fully.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/*.jpg'])">13. Take Front Plate 1 and apply glue to the edges of one of the long sides and both of the short sides. Slide End Plate 1 in between the two side plates at one end of the bottom plate. All edges should be flush.</div>
+                <br>
+                  <div class="live" onclick="set_images(['outer-housing/*.jpg'])">14. Repeat step 11 with End Plate 2. Your outer housing should look like this.</div>
+                <br>
+  </div>
+              <div id="Section13">
+               <h3>Section 13 - Mounting The Circuit</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- Neon Tubing
+                  <br>
+- The Circuit
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['mounting-circuit/1.jpg','mounting-circuit/1-1.jpg'])">1. Take the Neon tubing and cut 4 (four) 15mm pieces.</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-circuit/2.jpg','mounting-circuit/2-1.jpg','mounting-circuit/2-2.jpg'])">2. Take the circuit and glue the pieces of neon tubing to the black circles, so that the hole in the tubing is positioned up and down. These will be used for mounting the circuit to the Side Plate A (The one with L)</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-circuit/*.jpg'])">3. Take the circuit and position it so the bolt holes line up with the neon tubing.</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-circuit/4.jpg','mounting-circuit/4-1.jpg','mounting-circuit/4-2.jpg','mounting-circuit/4-3.jpg'])">4. Screw the bolts through the bolt holes in Side Plate A (The one with the L) and into the neon tubing glued on the circuit.</div>
+                <br>
+  </div>
+              <div id="Section14">
+               <h3>Section 14 - Mounting The Internal Assembly Into The Outer Housing</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- The Internal Assembly
+                  <br>
+- Glue
+                      <br>
+- Glue Stick
+                      <br>
+- Small Flathead Screwdriver
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-1.jpg','mounting-to-outer-housing/IA-1-1.jpg'])">1. Take 3 extenders and 3 screws. Insert the screws into the 3 holes in the top outer housing plate and thread the extenders onto them until snug</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-2.jpg','mounting-to-outer-housing/IA-2-1.jpg','mounting-to-outer-housing/IA-2-2.jpg','mounting-to-outer-housing/IA-2-3.jpg','mounting-to-outer-housing/IA-2-4.jpg'])">2. Lay the plate down so that the extenders are facing up. Place the internal assembly on top of the extenders so that the 3 holes in the L-Frame line up with the extenders. Thread one screw into each hole until snug.</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-*.jpg'])">3.Cut 4 (four) 10mm sections of neon tube</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-4.jpg'])">4. Apply glue halfway around outer wall, over the entire length of the tube.</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-5.jpg'])">5. Place the tube in a corner of the outer housing, flush with the top edge of the walls</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-*.jpg'])">6. Repeat steps 2 and 3 for the remaining neon tubes. When finished you will have one tube in each corner.</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-7.jpg'])">7. Place down the top plate, completing the housing so the two arrows point at eachother, and so the four holes of the plate line up with the neon tubes that you glued on.</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-8.jpg'])">8. Insert the 4 screws into the holes of the top plate, screwing into the neon tubes.</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-9.jpg'])">9. Ensure that you can see both mirrors and the front of the laser through the sliding door on the bottom of the outer housing.</div>
+                <br>
+                  <div class="live" onclick="set_images(['mounting-to-outer-housing/IA-*.jpg'])">10. Refer to Scotts instructions for connecting the printer to the circuit</div>
+                <br>
+  </div>
+              <div id="Section15">
+<!--FIX - you will need - img 5-9 missing from server-->
+               <h3>Section 15 - Assembling The Drip System</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['drip-feed/1.jpg','drip-feed/1-1.jpg'])">1. Take a dripper and cut off about 5cm from the fine tip end. We will now call the fine tip end the drip dispenser tube, and the large end the drip receiver tube.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/2.jpg','drip-feed/2-1.jpg','drip-feed/2-2.jpg'])">2. Split the top of the drip receiver tube with your utility knife, then make a second cut at a 90 degree angle from the first, so you have cut an X into the top of the drip receiver tube with each cut being about 5mm deep.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/3.jpg'])">3. Take the drip dispenser tube and cut the fine tip so it is about 3mm long.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/4.jpg','drip-feed/4-1.jpg'])">4. Insert the fine tip of the drip dispenser tube into the top of the drip receiver about half way like shown.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/*.jpg'])">5. Take a T-pin and puncture it through the sidewall of the drip receiver tube, so that it penetrates through both walls of the drip receiver tube, and the drip dispenser tube in the middle.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/*.jpg'])">6. Push a second pin into the outside the drip receiver tube, about _mm from the tip of the end inside the drip receiver tube.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/*.jpg'])">7. Cut two pieces of clear hose - one about 9” and the other about 3”. Slide the short piece over the top end of the drip counter, and the long piece over the bottom.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/*.jpg'])">8. Take the valve and connect it to top end of the drip system. Cut another piece of clear hose and connect it to the other end of the valve. Make sure that the entire length of the drip system once connected is long enough to reach from your top reservoir to your bottom reservoir. We recommend making it about 18-20” long.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/*.jpg'])">9. Take the audio jack and put the black wire onto the top T-pin, and the yellow wire onto the bottom T-pin. Tape the blue wire back, as we will not be needing this right now. Do not cut it off, as in the future this may be used to add additional functionality to the Peachy Printer.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/10.jpg'])">10. Cut a piece of neon tubing about 3” long and glue it to the outer edge of the U-connector.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/11.jpg'])">11. Cut a small piece of hose that reaches from the U-connector to the bottom of the top reservoir, and connect that piece to one end of the U-connector. Connect the top hose of the drip system to other side of the U-connector.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/12.jpg'])">12. Take your entire drip system and hang the U connector over the edge of your top reservoir, so the short end hangs inside the reservoir, and the long end hangs down on the outside of the reservoir.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/13.jpg'])">13. Take the bottom end of the hose and put it in the lower reservoir.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/14.jpg','drip-feed/14-1.jpg','drip-feed/14-2.jpg'])">14. Use glue to take the hose in place at multiple points for support.</div>
+                <br>
+                  <div class="live" onclick="set_images(['drip-feed/15.jpg'])">15. Your drip system should like look this.</div>
+                <br>
+  </div>
+              <div id="Section*">
+               <h3>Section * - SECTION NAME HERE</h3>
+                  <div id="youwillneed">For this section you will need:
+                  <br>
+- __
+                  <br>
+- __
+                  </div>
+                  <br>
+                  <div class="live" onclick="set_images(['jpg'])">PASTE INSTRUCTIONS HERE</div>
+                <br>
+  </div>
+              <div id="Section*">
+  <div class='right'> <!-- fit parent -->
+    <div id="imageframe"><div/></div>
+  </div>
+  <div class="slider-container">
+      <div class="slider_wrapper">
+          <ul id="image_slider">
+              <li><img src="mirror-assembly/1.jpg" width="760" height="280" onclick="window.open('mirror-assembly/1.jpg')" title="Click for full-size image"></li>
+          </ul>					
+          <span class="nvgt" id="prev"></span>
+          <span class="nvgt" id="next"></span>		
+      </div>
+      <ul id="pager">
+      </ul>
+</div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-inner">
+    <a href="http://peachyprinter-forum/phpbb">Beta Tester Forum</a>&nbsp;&nbsp;<a href="http://peachyprinter-forum/wiki">Instructions Wiki</a>&nbsp;&nbsp;<a href="http://peachyprinter.com">Official Website</a>
+</div>
+</div>
+</body>
+</html>

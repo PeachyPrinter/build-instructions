@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"MenuBarItem.js",
+"lineCount":1,
+"mappings":"A,SAAAA,MAAA,kGAIG,QAAA,CAASC,CAAT,CAAkBC,CAAlB,CAA4BC,CAA5B,EAKEC,CALF,CAKsBH,CAAA,gDACPE,CADO,yBAOpBE,EAZF,CAYgBJ,CAAA,sBAA8BC,CAA9B,CAAwCE,CAAxC,KAKlBC,EAAAD,kBAjBE,CAiB8BA,CAjB9B,OAoBKC,EApBL,CAJH,CA0BAC,QAAA,SACA,sCADA;",
+"sources":["MenuBarItem.js.uncompressed.js"],
+"names":["define","declare","MenuItem","template","_MenuBarItemMixin","MenuBarItem","require"]
+}

@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"main.js",
+"lineCount":2,
+"mappings":"A,SAmBAA,MAAA,wBAAkC,QAAA,CAAUC,CAAV,CAAeC,CAAf,EAuBlBA,CAAA,CAAQ,qOAAA,MAAA,KAAR,CAYmB,QAAA,CAASC,CAAT,EACjBA,CAAAC,MAAA,EACAC,MAAAC,KAAA,YAAAC,IAAA,wBAEIC,EAJa,gBAKbC,MAAAC,SAAAC,KAAAC,QAAA,KALa,GAMfJ,CANe,CAMIC,MAAAC,SAAAC,KAAAE,UAAA,CAA+BJ,MAAAC,SAAAC,KAAAC,QAAA,KAA/B,GANJ,MAQbJ,CARa,GAQWA,CARX,YASjBM;aAAA,CAAcN,CAAd,CATiB,CAZnB,CAvBkB,CAAlC;",
+"sources":["main.js.uncompressed.js"],
+"names":["define","has","require","parser","parse","dijit","byId","set","specifiedSection","window","location","href","indexOf","substring","selectSection"]
+}

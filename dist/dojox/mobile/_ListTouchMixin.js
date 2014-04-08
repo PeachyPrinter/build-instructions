@@ -1,0 +1,4 @@
+//>>built
+define("dojox/mobile/_ListTouchMixin",["dojo/_base/declare","dojo/touch","./sniff","dijit/form/_ListBase"],function(f,g,c,h){return f("dojox.mobile._ListTouchMixin",h,{postCreate:function(){this.inherited(arguments);if(10<=c("ie")&&c("touch")){this._listConnect(g.press,"_onPress");var b=this,a=new MSGesture,d;this._onPress=function(e){a.target=b.domNode;a.addPointer(e.pointerId);d=e.target};this.on("MSGestureTap",function(a){b._onClick(a,d)})}else this._listConnect("click","_onClick")},_onClick:function(b,
+a){this._setSelectedAttr(a);this.onClick(a)}})});
+//@ sourceMappingURL=_ListTouchMixin.js.map

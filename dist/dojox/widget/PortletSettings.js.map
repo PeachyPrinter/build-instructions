@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"PortletSettings.js",
+"lineCount":2,
+"mappings":"A,SAAAA,MAAA,uGAKI,QAAA,CAASC,CAAT,CAAkBC,CAAlB,CAA0BC,CAA1B,CAA8BC,CAA9B,QAEGH,EAAA,iCAAyCI,KAAAC,WAAzC,CAA2DD,KAAAE,OAAAC,YAA3D,gHAmBMC,QAAAA,GAKXC,IAAAC,MAAA,CAAWC,YAAX,kBACAF,KAAAG,SAAA,CAAcD,YAAd,iCAGAF,KAAAI,YAAA,CAAiBF,YAAjB,oBATWH,CAnBN,iBA+BWM,QAAAA,CAASC,CAATD,EAGhBC,YAHgBD;AAGDC,CAHCD,CA/BX,QAqCEE,QAAAA,OAGHC,EAAIN,YAHDK,SAIJP,IAAAC,MAAA,CAAWO,CAAX,WAJID,EAKNP,IAAAC,MAAA,CAAWO,CAAX,6CALMD,CAUNP,IAAAP,GAAAgB,OAAA,OACOD,CADP,EAAAE,KAAA,EAVMH,EAcNP,IAAAP,GAAAkB,QAAA,OACOH,CADP,OAEQR,IAAAY,MAAA,MAAiB,QAAA,GACvBZ,IAAAC,MAAA,CAAWO,CAAX,qCADuB,CAAjB,CAFR,EAAAE,KAAA,EAdMH,CArCF,EAFH,CALJ;",
+"sources":["PortletSettings.js.uncompressed.js"],
+"names":["define","declare","kernel","fx","TitlePane","dijit","_Container","layout","ContentPane","postCreate","dojo","style","domNode","addClass","removeClass","_setPortletAttr","portlet","toggle","n","wipeIn","play","wipeOut","hitch"]
+}

@@ -1,0 +1,70 @@
+
+    <div id="section19">
+    <h3>Section 19 - Tuning the Circuit</h3>
+
+        <div id="section19-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> In this section we will adjust the circuit so that when it receives a &quot;zero&quot; signal from your computer, it in turn sends 0.0 volts to the coils. As you will see we have some specific adjustment spots on the circuit for this purpose.
+<br>
+            <br>
+<b>Note:</b> If you start using a different computer to drive the printer after tuning the circuit, you will have to re-tune the circuit to the new computer.
+        <br>
+            <br>
+<b>Note:</b> There are no images for this section yet.</div>
+
+    <div id="section19-01" class="live" onclick="set_images(['app/images/parts-labelled.jpg'], this)"><b>For this section you will need:</b>
+      <ul>
+        <li>The Peachy Printer with all cables connected to your computer and software installed</li>
+        <li>A precision flathead screwdriver</li>
+        <li>Voltmeter (optional)</li>
+      </ul>
+    </div>
+    <p>
+        <br>
+        Click to see an image of the parts labelled.
+        <br>
+        <br>
+        <b>Note:</b> If you don’t have a voltmeter follow instruction set A, if you do have a voltmeter follow instruction set B (further down).
+        <br>
+    </p>
+
+<h3>Instruction Set A - Without a Voltmeter</h3>
+
+    <div id="section19-1a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1A.  Unplug the two cables going to the USB ports on your computer.</div>
+<div id="section19-2a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2A. Remove the external housing, unmount the printer from the internal box, and set it down on the table. Disconnect the laser from the circuit before starting to avoid the hazards of the laser turning on. Connect the printer to your computer with the two power cables going to your computers USB ports, and the audio cable going to your computers headphone jack. </div>
+<div id="section19-3a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3A. Launch calibrate-main.py</div>
+<div id="section19-4a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4A. In the &quot;shape: pull down menu change the shape to &quot;center&quot;. Pull the audio jack out of your computer to check that the software is  playing a signal.  You should hear a high pitched tone, if so then plug the audio cable back in.</div>
+<div id="section19-5a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5A. Open your computer's advanced volume settings.  Ensure that the master volume is at 100% and that the individual program volume for the calibration app is at 100% as well.  
+    <br>
+    <br>
+    <b>Note:</b> Make sure that you never use gain.  Every time you use your printer, the volume settings must be the same as they were when you calibrated.</div>
+<div id="section19-6a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6A. Remove the coil lead from screw terminal 1 on the circuit, trace the lead back to the mirror assembly it comes from. Take a look at the mirror on that assembly and make note of its natural resting position. The surface of the mirror should be level with the surface of the mirror frame (if it's not you'll have to adjust it with the spring force adjustment tube).
+<br>
+<br>
+<b>Tip:</b> Looking at a reference point in the reflection of the mirror before reconnecting the lead is a great way to tell how far the mirror moves when the coil gets power, and to see if you've adjusted it back to it's natural resting position.</div>
+<div id="section19-7a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7A. Reconnect the coil lead to screw terminal 1, then adjust VR1 until the mirror is in it's natural resting position (the same position it was when the lead was not connected).  
+<br>
+    <br>
+<b>Note:</b> If adjusted perfectly, the mirror should not move at all when you momentarily make a connection by tapping the coil lead to screw terminal 1.  The more the mirror jumps the further it is away from being zeroed, so get it as close as you can (it doesn’t have to be perfect, but it shouldn't move much). When a printer's circuit is not zeroed to that specific computer, it may turn the laser off for a portion of it's path during a print, or the laser may never come on at all.</div>
+<div id="section19-8a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8A. Repeat with screw terminal 3, the other mirror assembly, and VR2.</div>
+
+<h3>Instruction set B - with a voltmeter</h3>
+
+<div id="section19-1b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1B.  Unplug the two cables going to the USB ports on your computer.</div>
+<div id="section19-2b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2B. Remove the external housing, unmount the printer from the internal box, and set it down on the table.  Disconnect the laser from the circuit before starting to avoid the hazards of the laser turning on. Connect the printer to your computer with the two power cables going to your computer's USB ports, and the audio cable going to your computer’s headphone jack.</div>
+<div id="section19-3b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3B. Launch calibrate.py</div>
+<div id="section19-4b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4B. In the “shape: pull down menu change the shape to “center”. Pull the audio jack out of your computer to check that the software is playing a signal.  You should hear a high pitched tone, if so then plug the audio cable back in.</div>
+<div id="section19-5b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5B. Open your computer’s advanced volume settings.  Ensure that the master volume is at 100% and that the individual program volume for the calibration app is at 100% as well.
+        <br>
+        <br>
+        <b>Note:</b> Make sure you never have your volume over 100%, this should ensure that you’re not using gain in your sound system. Using gain will likely cause clipping of the audio signal that gets sent to the printer.  This will result in a print that is missing an entire portion of it’s wall.  Every time you use your printer, the volume settings must be the same.</div>
+<div id="section19-6b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6B. Set your voltmeter to the 2 volt range (unless autoranging). 
+    <br>
+    <br>
+    <b>Note:</b> you might need to start on a higher range and then switch down to for more accuracy 2v. </div>
+<div id="section19-7b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7B. Connect the black lead of your voltmeter to Test Point TP12 - you'll have to hold it here for the rest of this section. </div>
+<div id="section19-1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8B. Connect the red lead of your voltmeter to Test Point TP5.  Adjust VR1 until the voltmeter reads in range between 0.000V - 0.050V.  The closer you can get to 0.000V the better. VR1 and TP5 effect screw terminal 1.
+<br>
+    <br>
+<b>Note:</b> VR1 & 2 are 20 turn pots. That means they make 20 full rotations between their highest and lowest resistances. It is normal to turn the pot 5 times or more and see no change in voltage.  Keep turning, once you get in range the voltage will change quickly.</div>
+        <div id="section19-1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">9B. Move the red lead to Test Point TP6.  Adjust VR2 until the voltmeter reads in range between 0.000V - 0.050V. Note: The closer you can get to 0.000V the better. VR2 and TP6 effect screw terminal 3.</div>
+</div>
+

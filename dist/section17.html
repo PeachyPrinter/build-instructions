@@ -1,0 +1,177 @@
+    <div id="section17" class="section">
+    <h3>Section 17 - Installing the software</h3>
+
+        <div id="section17-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> In this section you'll be downloading and installing the Peachy Printer software.  Scroll down to find the instructions for your operating system.
+        <br>
+        <br>
+        <b>Note:</b> At this point installing the software must currently be done from source. The next major  release is in progress and will work like a normal application. If you are unfamiliar with running commands in from the terminal, we've found some tutorials that will help you understand how to complete this section.  Select the tutorial for your operating system.
+<br>
+            <br>
+<b>Windows:</b> <a href="http://www.computerhope.com/issues/chusedos.htm" target="_blank">http://www.computerhope.com/issues/chusedos.htm</a>
+<br>
+            <br>
+<b>Mac:</b> <a href="http://mac.appstorm.net/how-to/utilities-how-to/how-to-use-terminal-the-basics/" target="_blank">http://mac.appstorm.net/how-to/utilities-how-to/how-to-use-terminal-the-basics/</a>
+<br>
+            <br>
+<b>Linux:</b> <a href="https://help.ubuntu.com/community/UsingTheTerminal" target="_blank">https://help.ubuntu.com/community/UsingTheTerminal</a></div>
+  </div>
+
+    <div class="youwillneed"><b>For this section you will need:</b>
+      <ul>
+        <li>A computer - <b>Note:</b> We recommend that you choose one computer to print with at all times.  If you ever want to switch computers, you will have to re-tune your circuit and re-calibrate the printer.</li>
+        <li>An internet connection</li>
+      </ul>
+    </div>
+
+<h3>Installing the software in Windows</h3>
+
+    <div id="section17-w1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1. Install Python
+        <br>
+        <br>
+A. Vist the website <a href="http://python.org/download/" target="_blank">"http://python.org/download/"</a>.
+ From the list of options choose the "Python 2.7.6 Windows Installer" and follow the links to download the file
+        <br>
+B. Once the file has downloaded double click it to run the installer
+        <br>
+C. Follow the installer steps choose the default options
+</div>
+
+<div id="section17-w2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. Add Python to the windows command line
+    <br>
+    <br>
+A. While holding down the windows key press the r key, this opens the run dialogue. 
+Type in <b>cmd</b> and press <b>Enter</b> This will open the command prompt (white text on a black screen)
+    <br>
+B. In the command prompt window type <b>setx PYTHON_HOME "C:\PYTHON27"</b> and press <b>Enter</b>
+    <br>
+C. On the next line type <b>setx PATH "%PATH%;%PYTHON_HOME%;%PYTHON_HOME%\Scripts\"</b> and press <b>Enter</b>
+    <br>
+D. Type <b>python --version</b> and press <b>Enter</b> If you see the text <b>Python 2.7.8</b> or similar, python is correctly installed.
+Type <b>exit</b> and press <b>Enter</b> to close the command prompt</div>
+
+<div id="section17-w3" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3. Install Pyside - A python extension
+    <br>
+    <br>
+A. Vist the website <a href="http://qt-project.org/wiki/PySide_Binaries_windows" target="_blank">http://qt-project.org/wiki/PySide_Binaries_windows</a>.
+Select the option "PySide-1.2.1.win32-py2.7.exe" and download the file
+    <br>
+B. Once the file is downloaded <b>double click</b> it and follow the install procedures default setup
+</div>
+
+<div id="section17-w4" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4. Install PyAudio - A python extension
+    <br>
+    <br>
+A. Visit the website <a href="http://people.csail.mit.edu/hubert/pyaudio/#downloads" target="_blank">http://people.csail.mit.edu/hubert/pyaudio/#downloads</a>
+    <br>
+B. Select the "PyAudio for Python 2.7" option and download the file
+    <br>
+C. Once the file is downloaded <b>double</b> click the file and follow the install procedures default setup</div>
+
+<div id="section17-w5" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5. Install Numpy - A python extension
+    <br>
+    <br>
+A. Vist the website <a href="http://sourceforge.net/projects/numpy/files/NumPy/1.8.0/numpy-1.8.0-win32-superpack-python2.7.exe/download" target="_blank">http://sourceforge.net/projects/numpy/files/NumPy/1.8.0/numpy-1.8.0-win32-superpack-python2.7.exe/download</a> to download the numpy installer
+    <br>
+B. Once the file is downloaded <b>double click</b> the file and follow the install procedure default setup
+</div>
+
+<div id="section17-w6" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6. Get the Peachy Printer Tools
+    <br>
+    <br>
+A. Visit the website <a href="http://software.peachyprinter.com" target="_blank">http://software.peachyprinter.com</a> and download the latest version for your OS
+    <br>
+B. Once you have downloaded the software open your download folder
+    <br>
+<b>Right click</b> on the downloaded file and choose the option <b>expand</b>
+    <br>
+D. Move the expanded folder to a place you will remember
+</div>
+
+<h3>Installing the software in Mac OSX</h3>
+
+    <div id="section17-m1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1. Install xcode-select - Code tools for Mac
+        <br>
+        <br>
+A. Open the terminal application
+        <br>
+B. At the terminal window type <b>xcode-select --install</b> and press <b>Enter</b>
+        <br>
+C. Follow the on screen prompts to install with default options
+</div>
+<div id="section17-m2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. Install Homebrew - A mac package manager
+        <br>
+        <br>
+A. Open the terminal or use the same window as the previous step
+        <br>
+B. At the terminal window type <b>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"</b> and press <b>Enter</b>
+</div>
+<div id="section17-m3" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3. Install packages
+        <br>
+        <br>
+A. Open the terminal or use the same window as the previous step
+        <br>
+B. At the terminal window type <b>brew install python pyside pyside-tools</b> and press <b>Enter</b> - this process can take some time
+        <br>
+    C. At the terminal window type <b>pip install numpy</b> and press <b>Enter</b> - this process can take some time
+</div>
+<div id="section17-m4" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4. Install Pyaudio - a python extension
+        <br>
+        <br>
+A. Visit the website <a href="http://people.csail.mit.edu/hubert/pyaudio/packages/pyaudio-0.2.7.dmg" target="_blank">http://people.csail.mit.edu/hubert/pyaudio/packages/pyaudio-0.2.7.dmg</a> to download pyaudio
+        <br>
+B. Once the file is downloaded <b>double click</b> to open
+        <br>
+C. <b>Right click</b> the installer and while holding down the <b>option</b> key <b>left click</b> the <b>open</b> option
+    <br>
+    D. On the warning dialogue click <b>open</b>
+    <br>
+    E. Follow the install procedures default setup
+</div>
+<div id="section17-m5" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5. Get the Peachy Printer Tools
+    <br>
+    <br>
+A. Visit the website <a href="http://software.peachyprinter.com" target="_blank">http://software.peachyprinter.com</a> and download the latest version for your OS
+    <br>
+B. Once you have downloaded the software open your download folder
+    <br>
+C. <b>Right click</b> on the downloaded file and choose the option <b>expand</b>
+    <br>
+D. Move the expanded folder to a place you will remember
+</div>
+
+<h3>Installing the software in Linux (Debian)</h3>
+
+    <div id="section17-ld1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1. Open the terminal
+</div>
+ <div id="section17-ld2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. In the terminal type <b>sudo apt-get -y install python-numpy python-pyaudio python-PySide</b> and press <b>Enter</b>
+</div>
+ <div id="section17-ld3" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3. Get the Peachy Printer Tools
+    <br>
+    <br>
+A. Visit the website <a href="http://software.peachyprinter.com" target="_blank">http://software.peachyprinter.com</a> and download the latest version for your OS
+    <br>
+B. Once you have downloaded the software open your download folder
+    <br>
+C. <b>Right click</b> on the downloaded file and choose the option <b>expand</b>
+    <br>
+D. Move the expanded folder to a place you will remember
+</div>
+
+<h3>Installing the software in Linux (Redhat)</h3>
+
+    <div id="section17-lr1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1. Open the terminal
+</div>
+ <div id="section17-lr2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. In the terminal type <b>sudo yum -y install python-numpy python-pyaudio python-PySide</b> and press <b>Enter</b>
+</div>
+ <div id="section17-lr3" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3. Get the Peachy Printer Tools
+    <br>
+    <br>
+A. Visit the website <a href="http://software.peachyprinter.com" target="_blank">http://software.peachyprinter.com</a> and download the latest version for your OS
+    <br>
+B. Once you have downloaded the software open your download folder
+    <br>
+C. <b>Right click</b> on the downloaded file and choose the option <b>expand</b>
+    <br>
+D. Move the expanded folder to a place you will remember
+</div>
+

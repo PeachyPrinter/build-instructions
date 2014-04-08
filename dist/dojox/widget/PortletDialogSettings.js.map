@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"PortletDialogSettings.js",
+"lineCount":2,
+"mappings":"A,SAAAA,MAAA,4HAMI,QAAA,CAASC,CAAT,CAAkBC,CAAlB,CAA0BC,CAA1B,CAA8BC,CAA9B,CAAyCC,CAAzC,QAEIJ,EAAA,uCAA+CK,KAAAC,OAAAC,gBAA/C,+BASQC,QAAAA,CAASC,CAATD,CAAgBE,CAAhBF,EACZG,eADYH,CACMC,CAAAE,WADNH,YATR,QAaGI,QAAAA,GAIHC,WAJGD,GAMNC,WANMD,CAMQ,IAAIE,KAAAV,OAAJ,QAAyBW,UAAzB,EANRH,CAQNI,IAAAC,KAAA,EAAAC,YAAA,CAAwBL,WAAAM,QAAxB,CARMP,CAWNC,WAAAO,cAAAF,YAAA,CAAsCC,YAAtC,CAXMP,CAaNI,IAAAK,MAAA,CAAWR,WAAAM,QAAX;OACWR,eAAA,GADX,aAEYA,eAAA,GAFZ,OAbMC,CAiBNI,IAAAK,MAAA,CAAWF,YAAX,cAjBMP,CAmBJC,YAAAS,KAnBIV,CAoBNC,WAAAU,KAAA,EApBMX,CAsBNC,WAAAW,KAAA,CAAiBL,YAAjB,CAtBMP,CAbH,EAFJ,CANJ;",
+"sources":["PortletDialogSettings.js.uncompressed.js"],
+"names":["define","declare","kernel","fx","TitlePane","Dialog","dojox","widget","PortletSettings","constructor","props","node","dimensions","toggle","dialog","dijit","title","dojo","body","appendChild","domNode","containerNode","style","open","hide","show"]
+}
