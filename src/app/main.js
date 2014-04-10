@@ -56,12 +56,13 @@ define([ 'dojo/has', 'require' ], function (has, require) {
                   parser.parse();
                   dijit.byId('sections').set('href', 'section1.html');
 
-                  var specifiedSection = "section1";
+                  var specifiedSection = "1";
                   if (window.location.href.indexOf("#") != -1) {
                     specifiedSection = window.location.href.substring(window.location.href.indexOf("#") + 1);
                   }
-                  if (specifiedSection == "") specifiedSection = "section1";
-                  selectSection(specifiedSection);
+                  specifiedSection = specifiedSection.replace(/\D/g,'');
+                  if (specifiedSection == "") specifiedSection = "1";
+                  selectSection(parseInt(specifiedSection));
                 });
         }
         else {

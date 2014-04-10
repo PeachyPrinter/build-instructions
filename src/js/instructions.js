@@ -76,6 +76,10 @@
     document.getElementById("magnifier").onclick = function() { 
       $('.mag').loupe(); 
     };
+    document.getElementById("camera").onclick = function() {
+      var img = $('.mag')[currentImage];
+      window.open(img.src);
+    };
   }
 //1. set ul width 
 //2. image when click prev/next button
