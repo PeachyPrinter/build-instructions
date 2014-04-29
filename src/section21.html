@@ -1,77 +1,66 @@
-    <div id="section21">
-    <h3>Section 21 - Cure Time Calibration Print
-        <br>
-        <br>
-        Congratulations!  You're about to do your first actual print :)</h3>
-        
-        <div id="section21-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> In this step you'll find the ideal cure time (or laser speed). This is done by printing a corner and various speeds and then examining the print to determine the best cure time. If the laser moves too slowly, the resin gets exposed to too much light, resulting in a print that is overcured. Overcuring can cause a print to have very rough walls and sometimes even fail if the resin isn't able to break it’s surface tension quick enough.  The ideal settings will result in a print that is still somewhat soft or squishy.  You can then fully cure the printer at a later time by setting it out in sunlight, or by using a curing station. This process must be done each time that the laser is changed, or when using different resin formulas (stiff, flex, wiggle).
-<br>
-            <br>
-<b>Note:</b> Printing with PeachyJuice or MakerJuice Flex and Wiggle resins remains untested, so we recommend completing this section using PeachyJuice Stiff or MakerJuice SubG/SubG+ resin only.  If you'd like to be a part of testing how the Peachy Printer performs with the Wiggle and Flex resins, there will be a subforum for that mission soon!
-        <br>
-            <br>
-<b>Note:</b> This section has no images yet.</div>
 
+    <div id="section21">
+    <h3>Section 21 - Your First Print</h3>
+
+        <div id="section21-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> Well done, you are ready to make your own print with the Peachy for the first time!
+        <br>
+        <br>
+        <b>Note:</b> There are no images for this section yet.</div>
+        
     <div id="section21-01" class="live" onclick="set_images(['app/images/parts-labelled.jpg'], this)"><b>For this section you will need:</b>
       <ul>
-        <li>The Peachy Printer with all cables connected to your computer with software installed,  and upper and lower reservoirs with a drip feed.</li>
-        <li>PeachyJuice or MakerJuice resin (Stiff or SubG)</li>
+        <li>The Peachy Printer with all cables connected to your computer with software installed, and upper and lower reservoirs with a drip feed.</li>
+        <li>PeachyJuice or MakerJuice resin</li>
         <li>Safety glasses</li>
-        <li>Black marker</li>
-        <li>Saltwater</li>
+        <li>Wire mesh print base</li>
+        <li>Needle nose pliers or tweezers</li>
+        <li>Gcode to print</li>
       </ul>
       <p>
         <br>
-        Click to see an image of the parts labelled.
-        <br>
-        <br>
-        <b>Safety Note:</b> You must wear your safety glasses at all times
-Resin Warning: The resin is a mild skin irritant.  To be safe while handling resin we recommend that you use latex gloves. Be sure not to rub your face or eyes after handling the resin. The resin can get quite hot when exposed to direct sunlight, so be extra careful to keep it away from your skin under sunlight. If the resin is cured too quickly, prints can actually shatter due to the pressure and tension created by the shrinking outer layer of resin. Once the resin is fully cured, it becomes inert and is no longer an irritant.  Be sure to wash your fully cured print with soap and water before handling with your bare hands. Click <a href="http://makerjuice.com/docs/SubG-MSDS.pdf" target="_blank">here</a> to read the full material safety data sheet.
+        <b>Recommendation:</b> We strongly recommend that you chose a very simple object as your first print (a column, or a sphere).  We also strongly recommend that you print small (under 4 cm) until you've ran a few successful prints.  The reason for this is that if you do run into issues, you will find them and fix them much faster if your print only takes 5-10 minutes (as opposed to a print taking hours).
         <br>
         <br>
       </p>
     </div>
 
-    <div id="section21-1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1. Open the terminal and change directory into the source folder (src) in the Peachy Printer Tools folder, type <b>python exposure_test.py</b> and press <b>Enter</b> 
+    <div id="section21-1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1. If you are continuing directly on from section 22 and still have your upper & lower reservoirs set up with a print base and resin, and the printer plugged into your computer then skip ahead to step 3.  If not, start with step 2.</div>
+        
+        <div id="section21-2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. Remove your upper reservoir from the top of the external housing, and then remove the external housing.  Place your print base inside the lower reservoir - make sure the laser beam is hitting the center of the print base.  Add some salt water to the lower reservoir, then pour a small amount of resin on top of the salt water (just enough to completely cover the surface).  Be sure that the surface level of the resin does not get above the wire mesh of your print base.  You can now place the external housing back on, and the upper reservoir back on top of the printer.  Make sure that the drip feed still connects the two reservoirs.</div>
+        
+        <div id="section21-3" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3. Open the terminal and change the directory to the source folder “peachy printer tools”, type <b>python gcode_wav_converter.py &quot;YourTuningFile.dat&quot; &quot;yourGcode.gcode&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and press <b>Enter</b></div>
+        
+        <div id="section21-4" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4. If you still have a full lower reservoir from the cure time calibration print you will need to syphon the salt water back into the upper reservoir.  You can do this by simply lifting the lower reservoir above the upper reservoir.  Once it's high enough, the syphon action will reverse, and flow into the upper reservoir. 
+            <br>
+            <br>
+            <b>Note:</b> The surface level of the resin must get below the level of the print base before starting a new print. It is best to leave between 5-10mm of saltwater in the lower reservoir at all times.  Make sure you don't suck any resin into the tubing of the drip feed as it will cure hard over time and clog your drip feed.  Also, in order to prevent the drip feed housing from filling right up with water, ensure that when you're siphoning back into the upper reservoir the drip feed housing is completely upside down.</div>
+        
+        <div id="section21-5" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5. Open the drip valve and let the surface level of the resin rise. Close the valve off when the surface level of the resin is just below the wire mesh print base. 
+            <br>
+            <br>
+            <b>Note:</b> If the resin rises above the wire mesh print base, the print will not adhere to the base and your print will fail.</div>
+        
+        <div id="section21-6" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6. Ensure that your microphone setting on the computer is set to 100% and your volume is also at 100%.</div>
+        
+        <div id="section21-7" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7. From the command line type <b>python wav_player.py &quot;tuning.dat&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and press <b>Enter</b></div>
+        
+        <div id="section21-8" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8. Slowly turn on the drip valve and monitor the feedback on the screen.  The print will start automatically once the software detects the first drip.
         <br>
-        This will generate gcode for your cure time calibration print.</div>
+        <br>
+        <b>Note:</b> You may not see the laser turn on right away, this is normal.  Drip slowly until the laser turns on.</div>
         
-        <div id="section21-2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. Convert the gcode you just generated to a wav file from the command line by typing <b>python gcode_wav_converter.py &quot;tuning.dat&quot; &quot;exposure_test.gcode&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and pressing <b>Enter</b></div>
+        <div id="section21-9" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">9. If you set the drip rate to fast, the software will give you the following warning: &quot;<b>Too fast:-------> X drips ahead</b>&quot;.  If this happens re-adjust the clamp ring valve on the drip feed until the warning stops appearing.</div>
         
-        <div id="section21-3" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3. Remove your upper reservoir from the top of the external housing, and then remove the external housing.  Place your print base inside the lower reservoir,  Add some salt water to the lower reservoir, then add a small amount of resin on top of the salt water (just enough to completely cover the surface) by slowly pouring it down the side wall of the container (similar to how a beer would be poured).  Be sure that the surface level of the resin does not get above the wire mesh of your print base.   Put the lower reservoir inside the internal housing making sure the laser beam is hitting the center of the print base.You can now place the external housing back on, and the upper reservoir back on top of the printer.  Make sure that the drip feed still connects the two reservoirs.</div>
+        <div id="section21-10" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">10. You are now printing!  Watch and wait :) If the feedback in the terminal tells you you're dripping too fast, adjust the drip rate accordingly.</div>
         
-        <div id="section21-4" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4. Open the drip valve and let the surface level of the resin rise. Close the valve off when the surface level of the resin is just below the wire mesh print base. 
-            <br>
-            <br>
-            <b>Note:</b> If the resin rises above the wire mesh print base, the print will not adhere to the base and your print will fail. This is because the laser light only cures approximately 0.1mm down into the resin.</div>
+        <div id="section21-11" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">11. The software will notify you when the print is complete. Remove the print from the lower reservoir by picking up the print base with a pair of tweezersor needle nosed pliers.</div>
         
-        <div id="section21-5" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5. Ensure that your microphone setting on the computer is set to 100% and your volume is also at 100%.</div>
+        <div id="section21-12" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">12. If your print needs to be cured more, you can do so by exposing it to UV light.</div>
         
-        <div id="section21-6" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6. From the command line type <b>python wav_player.py &quot;Tuning.dat&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and press <b>Enter</b></div>
-        
-        <div id="section21-7" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7. Slowly turn on the drip valve and monitor the feedback on the screen.  The print will start automatically once the software detects the first drip.</div>
-        
-        <div id="section21-8" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8. If you set the drip rate to fast, the software will give you the following warning: “<b>Too fast:-------> X drips ahead</b>”.  If this happens re-adjust the clamp ring valve on the drip feed until the warning stops appearing. 
-            <br>
-            <br>
-            <b>Note:</b> A print generally won't fail until the dripper is running 100-200 drips ahead.  In fact, it doesn’t hurt to have the drip rate running 5-25 drips ahead at all times.</div>
-        
-        <div id="section21-9" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">9. You are now printing!  Watch and wait :)</div>
-        
-        <div id="section21-10" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">10. The software will notify you when the print is completely. Stop the drip feed completely. Remove the print from the lower reservoir by picking up the print base with a pair of tweezers. Be careful not to expose it to UV light (sunlight, grow lights, tanning beds) until after you’ve completed all the steps in this section.
-            <br>
-            <br>
-            <b>Safety Note:</b> Be sure that you are wearing protective gloves when handling a fresh print.  Once the print is fully cured, you can wash it thoroughly with soap and water, and then it is safe to handle with bare hands.</div>
-        
-        <div id="section21-11" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">11. Set the print down and poke along it from top to bottom.  You’ll notice that it’s cured hard on one end, and soft on the other.  The ideal cure rate or laser speed will have taken place at the hardest (most cured) point that is still smooth.  Make a mark at this point.</div>
-        
-        <div id="section21-12" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">12. Measure the distance from the bottom of the print to the mark you made and subtract 3 mm from your measurement.  To calculate your ideal laser speed in mm/second take your measurement, multiply it by 50, and add 100. For example, if your print is cured properly at a height of 10mm your calculation would be 10 * 50 + 100 = 600(mm/second).</div>
-        
-        <div id="section21-13" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">13. Make note of this value as you will use it when generating your gcode. <b>Congratulations on your first print!</b></div>
+        <div id="section21-13" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">13. While wearing protective gloves, wash your print thoroughly with soap and warm water to remove any residue.</div>
 </div>
 <div id="Section*">
 </div>
 </div>
     </div>
   </div>
-
