@@ -1,3 +1,2 @@
-remote=go@instructions.peachyprinter.com:/var/www/instructions/
-rsync -vr dist/* ${remote}
+rsync -vr * go@instructions.peachyprinter.com:/var/www/instructions/p228/
 
