@@ -9,6 +9,15 @@
 
     <style media="screen" type="text/css">
 
+      #fixed-div {
+        font-size: x-small;
+        background: red;
+        position: fixed;
+        top: 1em;
+        right: 1em;
+      }
+      .container {
+
       .container .left{
         margin-top: 84px;
         margin-bottom: 30px;
@@ -225,7 +234,7 @@
             </tr>
           </table>
         <div data-dojo-type="dijit/MenuBar" id="navMenu">
-          <div data-dojo-type="dijit/PopupMenuBarItem" style="width: 100%; overflow: hidden;">
+          <div data-dojo-type="dijit/PopupMenuBarItem" style="width: 70%; overflow: hidden;">
             <span style="width: 100%; overflow: hidden;">Choose a section</span>
               <div data-dojo-type="dijit/DropDownMenu" id="fileMenu" >
                 <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection(1); }">Section 1: Preparing for the assembly process</div>
@@ -254,10 +263,21 @@
                   <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ selectSection(24); }">Section 24: Troubleshooting & FAQ</div>
                 </div>
                </div>
-           </div>
+          <div data-dojo-type="dijit/PopupMenuBarItem" style="width: 20%; overflow: hidden;">
+            <span style="width: 100%; overflow: hidden;">Choose a version</span>
+              <div data-dojo-type="dijit/DropDownMenu" id="versionMenu" >
+                <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ window.location.href='http://instructions.peachyprinter.com/'; }">PP29</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ window.location.href='http://instructions.peachyprinter.com/pp28'; }">PP28</div>
+                  <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){ window.location.href='http://instructions.peachyprinter.com/pp27'; }">PP27</div>
+                </div>
+               </div>
+         </div>
       </div>
     
     <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'leading'" style="width: 47%; background-image:url('app/images/background-image.jpg');" id="sectionx">
+      <div id="fixed-div">
+        Warning: Not latest version - only about 50 people were shipped this version
+      </div>
       <div id="bocontainer" data-dojo-type="dijit/layout/BorderContainer" style="width: 100%; height: 100%;">
         <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="background-image:url('app/images/background-image.jpg');" id="button">
               <div id="prevbutton" data-dojo-type="dijit.form.Button">Previous Section
