@@ -296,6 +296,18 @@ window.onload = init;
     </div>
   </div>
     <div class='container'>
+          Version:
+          <select onChange="chooseVersion(this)">
+            <option value="http://instructions.peachyprinter.com/">PP29</option>
+            <option value="http://instructions.peachyprinter.com/pp28">PP28</option>
+            <option selected value="http://instructions.peachyprinter.com/pp27">PP27</option>
+          </select>
+          <script type="text/javascript">
+              function chooseVersion(s) {
+                  var a = s.value;
+                  window.location.href = a;
+              }
+          </script>
           <div class='left'> 
             <div id="Section1">
                <h3>Section 1 - Assembling The Mirror Assemblies</h3>
