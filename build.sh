@@ -62,6 +62,7 @@ perl -pe "
 echo "Build complete"
 cp -r src/js dist/
 cp src/section*.html dist/
+cp -r src/stand-template dist/
 ./buildsinglepage.sh
 
 
