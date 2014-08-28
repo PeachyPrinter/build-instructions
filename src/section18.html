@@ -1,169 +1,66 @@
-    
-    <div id="section18">
-    <h3>Section 18 - Calibrating the Peachy Printer</h3>
 
-    <div id="section18-0" class="live" onclick="set_images(['app/images/parts-labelled.jpg'], this)"><b>For this section you will need:</b>
+    <div id="section18">
+    <h3>Section 18 - Your First Print</h3>
+
+        <div id="section21-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> Well done, you are ready to make your own print with the Peachy for the first time!
+        <br>
+        <br>
+        <b>Note:</b> There are no images for this section yet.</div>
+        
+    <div id="section21-01" class="live" onclick="set_images(['app/images/parts-labelled.jpg'], this)"><b>For this section you will need:</b>
       <ul>
-        <li>The Peachy Printer with all connected to your computer with software installed, your upper and lower reservoirs, and the drip feed</li>
-        <li>Calibration grid</li>
-        <li>Extra elastic thread (about 9 inches in length)</li>
-        <li>One small nut (from the nuts and bolts bag)</li>
-        <li>Wire mesh print base</li>
-        <li>Saltwater</li>
-        <li>The extra syringe</li>
+        <li>The Peachy Printer with all cables connected to your computer with software installed, and upper and lower reservoirs with a drip feed.</li>
+        <li>PeachyJuice or MakerJuice resin</li>
         <li>Safety glasses</li>
+        <li>Wire mesh print base</li>
+        <li>Needle nose pliers or tweezers</li>
+        <li>Gcode to print</li>
       </ul>
       <p>
         <br>
-        Click to see an image of the parts labelled.
-        <br>
-        <br>
-        <b>Safety Note:</b> This section of the instructions requires the laser to be on and unguarded. Everyone within line of sight of the printer should be wearing the UV protective glasses provided. If you have pets, make sure they are out of the room. Remember, you can't see the UV light very well. Even a very bright UV light will appear fairly dim to the human eye unless its shining on a phosphorescent surface. It is possible for other sounds from your computer to turn the laser on (music, notifications, etc) so ensure that all other sounds are muted when using your Peachy Printer.
+        <b>Recommendation:</b> We strongly recommend that you chose a very simple object as your first print (a column, or a sphere).  We also strongly recommend that you print small (under 4 cm) until you've ran a few successful prints.  The reason for this is that if you do run into issues, you will find them and fix them much faster if your print only takes 5-10 minutes (as opposed to a print taking hours).
         <br>
         <br>
       </p>
     </div>
 
-        <h3>Part A - Calibrating the printer</h3>
+    <div id="section21-1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1. If you are continuing directly on from section 22 and still have your upper & lower reservoirs set up with a print base and resin, and the printer plugged into your computer then skip ahead to step 3.  If not, start with step 2.</div>
         
-    <div id="section18-0a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> Calibrating your printer will help account for discrepancies in centering, distance from the print area,  and physical differences between each printer. This process is required every time you change the printer height, change reservoirs, move the internal components of the printer (such as a hard bump or a fall), change computers, or change sound cards.
+        <div id="section21-2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. Remove your upper reservoir from the top of the external housing, and then remove the external housing.  Place your print base inside the lower reservoir - make sure the laser beam is hitting the center of the print base.  Add some salt water to the lower reservoir, then pour a small amount of resin on top of the salt water (just enough to completely cover the surface).  Be sure that the surface level of the resin does not get above the wire mesh of your print base.  You can now place the external housing back on, and the upper reservoir back on top of the printer.  Make sure that the drip feed still connects the two reservoirs.</div>
+        
+        <div id="section21-3" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3. Open the terminal and change the directory to the source folder “peachy printer tools”, type <b>python gcode_wav_converter.py &quot;YourTuningFile.dat&quot; &quot;yourGcode.gcode&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and press <b>Enter</b></div>
+        
+        <div id="section21-4" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4. If you still have a full lower reservoir from the cure time calibration print you will need to syphon the salt water back into the upper reservoir.  You can do this by simply lifting the lower reservoir above the upper reservoir.  Once it's high enough, the syphon action will reverse, and flow into the upper reservoir. 
+            <br>
+            <br>
+            <b>Note:</b> The surface level of the resin must get below the level of the print base before starting a new print. It is best to leave between 5-10mm of saltwater in the lower reservoir at all times.  Make sure you don't suck any resin into the tubing of the drip feed as it will cure hard over time and clog your drip feed.  Also, in order to prevent the drip feed housing from filling right up with water, ensure that when you're siphoning back into the upper reservoir the drip feed housing is completely upside down.</div>
+        
+        <div id="section21-5" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5. Open the drip valve and let the surface level of the resin rise. Close the valve off when the surface level of the resin is just below the wire mesh print base. 
+            <br>
+            <br>
+            <b>Note:</b> If the resin rises above the wire mesh print base, the print will not adhere to the base and your print will fail.</div>
+        
+        <div id="section21-6" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6. Ensure that your microphone setting on the computer is set to 100% and your volume is also at 100%.</div>
+        
+        <div id="section21-7" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7. From the command line type <b>python wav_player.py &quot;tuning.dat&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and press <b>Enter</b></div>
+        
+        <div id="section21-8" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8. Slowly turn on the drip valve and monitor the feedback on the screen.  The print will start automatically once the software detects the first drip.
         <br>
         <br>
-        <b>Note:</b> This section has no images yet.</div>
+        <b>Note:</b> You may not see the laser turn on right away, this is normal.  Drip slowly until the laser turns on.</div>
         
-        <div id="section18-1a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1A. Determine the height of your lower reservoir by measuring from the bottom of the inside of the reservoir up to the top of its walls. If you are using our default housing we recommend a lower reservoir with a maximum height of 6 cm.</div>
+        <div id="section21-9" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">9. If you set the drip rate to fast, the software will give you the following warning: &quot;<b>Too fast:-------> X drips ahead</b>&quot;.  If this happens re-adjust the clamp ring valve on the drip feed until the warning stops appearing.</div>
         
-        <div id="section18-2a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2A. Determine the maximum Z range (printable object height) for the reservoir you chose  - the distance between the print base level (the level at which you start a print) to the maximum height of your build volume.  You can do this by measuring the height of your wire mesh print base, and subtracting that from the height of your lower reservoir.  For example - 6 cm (height of lower reservoir) subtract 1 cm (height of print base) = 5 cm (maximum Z range)</div>
+        <div id="section21-10" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">10. You are now printing!  Watch and wait :) If the feedback in the terminal tells you you're dripping too fast, adjust the drip rate accordingly.</div>
         
-        <div id="section18-3a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3A. Make sure that your sound card is set to maximum volume for the speaker.
-            <br>
-            <br>
-            <b>Note:</b> Some sound cards have a boost feature, audio effects, and microphone feedback. Ensure that these features are off.</div>
+        <div id="section21-11" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">11. The software will notify you when the print is complete. Remove the print from the lower reservoir by picking up the print base with a pair of tweezersor needle nosed pliers.</div>
         
-        <div id="section18-4a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4A. Mount the printer back onto the internal box by hooking the main hanger onto the internal box.</div>
+        <div id="section21-12" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">12. If your print needs to be cured more, you can do so by exposing it to UV light.</div>
         
-        <div id="section18-5a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5A. With your safety glasses on, open the calibration software.</div>
-        
-        <div id="section18-6a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6A. Click <b>&quot;Add new calibration&quot;</b> then enter the height you determined in step 3.</div>
-        
-        <div id="section18-7a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7A. Select the <b>&quot;0.0&quot;</b> calibration and click <b>&quot;Delete current calibration&quot;</b>.</div>
-        
-        <div id="section18-8a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8A. Place your lower reservoir directly underneath the printer, inside the internal housing. Lay the calibration grid on top of your lower reservoir so that it’s sitting at the height you determined in Step 2 (the height of your lower reservoir).</div>
-        
-        <div id="section18-9a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">9A. Take the piece of extra elastic thread and tie a knot around the nut. You’ll use this as a miniature plumb bob to line the calibration grid up directly underneath the 2nd mirror on the printer.</div>
-        
-        <div id="section18-10a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">10A. Take the nut with the string attached and lay it down on the center of the calibration grid. Take the untied end of thread and route it up and around the mirror frame so that the thread is hanging overtop of the frame in a &quot;U&quot; shape.  The thread should hanging in line with the center of the mirror.</div>
-        
-        <div id="section18-11a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">11A. Pull the untied end of the thread down until the nut is hanging about 1mm above the calibration grid, suspended from the second mirror.</div>
-        
-        <div id="section18-12a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">12A. Move the calibration grid so that the center of the grid is lined up with the nut, but positioned about 5 mm behind it. </div>
-        
-        <div id="section18-13a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">13A. Use the spring force adjustment tubes to align the laser beam to hit dead center of the calibration grid. </div>
-        
-        <div id="section18-14a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">14A. Once you have the laser beam as close to center as you can get it, align the calibration grid so that the laser beam is hitting dead center on the grid.</div>
-        
-        <div id="section18-15a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">15A. In the calibration application from the <b>&quot;Shape&quot;</b> pull down menu select <b>&quot;Xline&quot;</b>. The printer should now be drawing a straight line back and forth along the X axis. Rotate the calibration grid so the laser path matches up with the gridlines.
-            <br>
-            <br>
-            <b>Note:</b> Move the shape back and forth between Center and Xline to assure that the calibration grid stays centered underneath the second mirror after it’s been moved.
-            <br>
-            <br>
-            <b>Troubleshooting Tip:</b> Due to the fact that the dynamic damper tab is a protruding and moving part, and that the static damper must be mounted in such close proximity for the dampening system to work, it can often be the source of malfunction if it’s not adjusted properly.  If you’re experiencing issues here, it’s likely that the dynamic damper tab is running into the static damper and needs to be re-adjusted.</div>
-        
-        <div id="section18-16a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">16A. In the calibration application from the <b>&quot;Shape&quot;</b> pull down menu select <b>&quot;Square&quot;</b>. Your printer should now be attempting to draw a square on the calibration grid.  It will most likely be quite warped.  This is normal, and is what the calibration app is for. 
-            <br>
-            <br>
-            <b>Troubleshooting Tip:</b> Depending on the size of square that the printer is drawing, a section of the square may appear to be missing.  This is likely because the printer is attempting to draw a square too large and the laser beam is actually being blocked by the mirror frame for a portion of it's path. This can be fixed with calibration.</div>
-        
-        <div id="section18-17a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">17A. Manipulate the values of the <b>"shear"</b> and <b>&quot;scale&quot;</b> tuning parameters to make the warped square a true square. Use the grid lines on the calibration grid as a reference to the correctness of the square. When finished, the 4 walls of the square should trace the lines on the calibration grid. You’ll need to make note of how large the square is, as you’ll have to re-create a square of the same size in a later step.
-            <br>
-            <br>
-            <b>Tip:</b> Start with shear, and finish with scale. It's generally a good idea to scale down (this will fix the issue of the laser path being blocked by the mirror frame).</div>
-        
-        <div id="section18-18a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">18A. Measure the distance from the center to the edge of the square in millimeters and enter that in the &quot;Max position&quot; fields of the X and Y axis columns. <br>
-            <br>
-            <b>Note:</b> The light grey grid lines on the calibration paper are 2mm apart, and the dark grid lines are 1 cm apart.</div>
-        
-        <div id="section18-19a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">19A. Re-adjust the height of the calibration grid so that it is at the print base level (the height of your print base).  The simplest way to do this is to put the calibration grid on top of your print base.  If the calibration grid doesn’t fit inside your lower reservoir that is fine.  Remove your lower reservoir from underneath the printer and place the calibration grid on top of the print base directly on the surface of your work area.</div>
-        
-        <div id="section18-20a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">20A. Click the "<b>Add new calibration</b>" button and enter "<b>0.0</b>"</div>
-        
-        <div id="section18-21a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">21A. In the calibration application from the <b>&quot;shape&quot;</b> pull down menu select <b>&quot;center&quot;</b></div>
-        
-        <div id="section18-22a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">22A. Align the calibration grid so that the laser beam is shining on the center point of the grid.</div>
-        
-        <div id="section18-23a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">23A. In the calibration application from the &quot;<b>Shape</b>&quot; pull down menu select &quot;<b>Xline</b>&quot; and rotate the paper to line up on that axis.<br>
-            <br>
-            <b>Note:</b> Move the shape back and forth between Center and Xline to assure that the calibration grid stays centered underneath the second mirror after it’s been moved.</div>
-        
-        <div id="section18-24a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">24A. In the calibration application from the <b>&quot;Shape&quot;</b> pull down menu select <b>&quot;Square&quot;</b>.</div>
-        
-        <div id="section18-25a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">25A. Reduce the X and Y scale values in the <b>“tuning parameters”</b> section until the size of the square that the printer is drawing is equal to the size of the square that was drawn in step 17. 
-            <br>
-            <br>
-            <b>Note:</b> Be sure that you don’t use the “<b>size</b>” field to adjust the size of the square as it’s a global variable and its value is not saved in each calibration file.</div>
-        <div id="section18-26a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">26A. Click save and save your calibration file under the name <b>&quot;tuning.dat&quot;</b> 
-            <br>
-            <br>
-            <b>Note:</b> There is already a file named <b>&quot;tuning.dat&quot;</b> in the src directory.  Overwrite it with your new file.</div>
+        <div id="section21-13" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">13. While wearing protective gloves, wash your print thoroughly with soap and warm water to remove any residue.</div>
 </div>
-
-<h3>Part B - Calibrating the dripper</h3>
-
-<div id="section18-0b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> This step allows the software to determine the height of the print surface in your tank. This process must be completed every time you physically alter the dripper or change the lower reservoir.
-<br>
-<br>
-<b>Note:</b> The drip rate affects the size of the drips by as much as 30%. This is an issue we plan to account for in the software by measuring the time between each drip and using that in a formula to calculate the drip size.  For now just be aware that it is still an issue.  Another possible solution is a solenoid valve which governs a consistently fast drip speed by turning it on or off.  Being that the Peachy Printer is a community project, feel free to get involved with the development of this feature by visiting the thread about it at <a href="http://3dprintboard.com/showthread.php?2194-Drip-Governor-A-most-valuble-first-hack" target="_blank">3Dprintboard.com</a>.</div>
-
-<div id="section18-1b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1B. Ensure that your computer’s microphone levels are at 100% and no special effects or features are enabled (monitoring, etc). </div>
-
-<div id="section18-2b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2B. Remove the lower reservoir from underneath the printer and put the external housing and top plate over the printer.</div>
-
-<div id="section18-3b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3B. Fill your upper reservoir with salt water and place it on top of the printer. Hang the upper hose hanger of your drip feed on the rim of the upper reservoir.  Ensure that the end of the hose is submerged in the saltwater, and that the clamp ring valve at the top of the drip feed is opened enough to allow the salt water to flow through the hose.</div>
-
-<div id="section18-4b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4B. Take the extra syringe and insert the nozzle into the bottom end of the drip feed. Pull the plunger all the way out, this should start the siphoning action.</div>
-
-<div id="section18-5b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5B. Hang the lower hose hanger on the rim of the lower reservoir. The drip feed should now be running. Adjust the clamp ring valve to stop the drip feed completely.</div>
-
-<div id="section18-6b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6B. Plug the audio jack that's wired to the drip feed into your computer's microphone jack.</div>
-
-<div id="section18-7b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7B. Launch the drip counter application.
-    <br>
-A. Start the console / terminal / command prompt.
-    <br>
-B. Change directory into the source folder for the application (where-you-saved it/PeachyToolChain/src).
-    <br>
-C. Type <b>python drip_counter.py</b> and press <b>Enter</b>.</div>
-
-<div id="section18-8b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8B. Adjust the valve on your drip feed to start the dripping.  
-    <br>
-    <br>
-    <b>Note:</b> As the drips fall, they must simultaneously make contact with both aluminum rods inside the syringe on your drip feed.  If this is not happening, make sure the aluminum rods are aligned so that the upper rod is directly above the lower rod, and within a small enough distance that each drip can touch both rods for a fraction of time.</div>
-
-<div id="section18-9b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">9B. You should have feedback in the console showing the drips as they occur.
-    <br>
-    <br>
-    <b>Troubleshooting tip:</b> If you can't see the drips being counted, a number of things could be going wrong.  The aluminum rods in the drip feed may not be lined up properly, or the wires on the dripper could be hooked up incorrectly or have a bad connection.  Check to ensure that these things are done correctly and if that doesn’t fix the problem, post in the forum for help.  If you'd like, see if others need help too!</div>
-
-<div id="section18-10b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">10B. Quit the application by pressing <b>Ctrl-C</b>.</div>
-
-<div id="section18-11b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">11B. Close the valve on your drip feed so that the dripping stops.</div>
-
-<div id="section18-12b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">12B. Make a mark 30 mm up from the surface of the salt water in the lower reservoir.</div>
-
-<div id="section18-13b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">13B. Start the drip counter application again by typing <b>python drip_counter.py</b> and press <b>Enter</b></div>
-
-<div id="section18-14b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">14B. Open the valve so that it starts dripping at a rate of approximately one drip per second (you can just estimate this).</div>
-
-<div id="section18-15b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">15B. Let the drip feed run until the surface level of the salt water in the lower reservoir is at the height of the mark you made in step 12.  Note the total number of drips shown in the drip counter application.</div>
-
-<div id="section18-16b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">16B. Calculate the total number of drips per mm by dividing the total number of drips by 30.
+<div id="Section*">
 </div>
-
-<div id="section18-17b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">17B. Open the calibration application.</div>
-
-<div id="section18-18b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">18B. Click "load" and select the "<b>tuning.dat</b></b>" calibration file you saved in Part A.</div>
 </div>
-<div id="section18-19b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">19B. Enter the drips per mm and click &quot;save&quot; to update this file.</div>
-</div>
-
+    </div>
+  </div>

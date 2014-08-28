@@ -1,74 +1,77 @@
-
     <div id="section16">
-    <h3>Section 16 - Tuning the Circuit</h3>
-
-        <div id="section16-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> In this section we will adjust the circuit so that when it receives a &quot;zero&quot; signal from your computer, it in turn sends 0.0 volts to the coils. As you will see we have some specific adjustment spots on the circuit for this purpose. This section can be quite tricky!  In the case that you do need support, you can ask your questions <a href="http://forum.peachyprinter.com/viewforum.php?f=29" target="_blank">here</a>.
+    <h3>Section 16 - Cure Time Calibration Print
+        <br>
+        <br>
+        Congratulations!  You're about to do your first actual print :)</h3>
+        
+        <div id="section19-00" class="live" onclick="set_images(['app/images/noimage.jpg'], this)"><b>Description:</b> In this step you'll find the ideal cure time (or laser speed). This is done by printing a corner and various speeds and then examining the print to determine the best cure time. If the laser moves too slowly, the resin gets exposed to too much light, resulting in a print that is overcured. Overcuring can cause a print to have very rough walls and sometimes even fail if the resin isn't able to break it’s surface tension quick enough.  The ideal settings will result in a print that is still somewhat soft or squishy.  You can then fully cure the printer at a later time by setting it out in sunlight, or by using a curing station. This process must be done each time that the laser is changed, or when using different resin formulas (stiff, flex, wiggle).
 <br>
             <br>
-<b>Note:</b> If you start using a different computer to drive the printer after tuning the circuit, you will have to re-tune the circuit to the new computer.
+<b>Note:</b> Printing with PeachyJuice or MakerJuice Flex and Wiggle resins remains untested, so we recommend completing this section using PeachyJuice Stiff or MakerJuice SubG/SubG+ resin only.  If you'd like to be a part of testing how the Peachy Printer performs with the Wiggle and Flex resins, there will be a subforum for that mission soon!
         <br>
             <br>
-<b>Note:</b> This section has many missing images.</div>
+<b>Note:</b> This section has no images yet.</div>
 
-    <div id="section16-01" class="live" onclick="set_images(['app/images/parts-labelled.jpg','app/images/section16/cd-all.jpg'], this)"><b>For this section you will need:</b>
+    <div id="section19-01" class="live" onclick="set_images(['app/images/parts-labelled.jpg'], this)"><b>For this section you will need:</b>
       <ul>
-        <li>The Peachy Printer with all cables connected to your computer and software installed</li>
-        <li>A precision flathead screwdriver</li>
-        <li>Voltmeter (optional)</li>
+        <li>The Peachy Printer with all cables connected to your computer with software installed,  and upper and lower reservoirs with a drip feed.</li>
+        <li>PeachyJuice or MakerJuice resin (Stiff or SubG)</li>
+        <li>Safety glasses</li>
+        <li>Black marker</li>
+        <li>Saltwater</li>
       </ul>
+      <p>
         <br>
-        Click to see an image of the parts labelled as well as a <b>full circuit diagram</b>.
+        Click to see an image of the parts labelled.
+        <br>
+        <br>
+        <b>Safety Note:</b> You must wear your safety glasses at all times
+Resin Warning: The resin is a mild skin irritant.  To be safe while handling resin we recommend that you use latex gloves. Be sure not to rub your face or eyes after handling the resin. The resin can get quite hot when exposed to direct sunlight, so be extra careful to keep it away from your skin under sunlight. If the resin is cured too quickly, prints can actually shatter due to the pressure and tension created by the shrinking outer layer of resin. Once the resin is fully cured, it becomes inert and is no longer an irritant.  Be sure to wash your fully cured print with soap and water before handling with your bare hands. Click <a href="http://makerjuice.com/docs/SubG-MSDS.pdf" target="_blank">here</a> to read the full material safety data sheet.
+        <br>
+        <br>
+      </p>
     </div>
-    <p>
-        <br>
-        <br>
-        <b>Note:</b> If you don’t have a voltmeter follow instruction set A, if you do have a voltmeter follow instruction set B (further down).
-        <br>
-        <br>
-        <b>Safety Note:</b> If you are returning to this section to re-tune your circuit after your laser has been fully hooked up, you must disconnect your laser from the circuit before continuing to prevent any risks of injury from exposure to the laser beam.
-        <br>
-    </p>
 
-<h3>Instruction Set A - Without a Voltmeter</h3>
-
-    <div id="section16-1a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1A.  Remove the external housing, unmount the printer from the internal box, and set it down on the table.  Connect the printer to your computer with the two power cables going to your computer’s USB ports, and the audio cable going to your computer’s headphone jack.</div>
-<div id="section16-2a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2A. Launch calibrate-main.py</div>
-<div id="section16-3a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3A. In the &quot;shape: pull down menu change the shape to &quot;center&quot;. Pull the audio jack out of your computer to check that the software is  playing a signal.  You should hear a high pitched tone, if so then plug the audio cable back in.</div>
-<div id="section16-4a" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4A. Open your computer's advanced volume settings.  Ensure that the master volume is at 100% and that the individual program volume for the calibration app is at 100% as well.  
-    <br>
-    <br>
-    <b>Note:</b> Make sure that you never use gain.  Every time you use your printer, the volume settings must be the same as they were when you calibrated.</div>
-<div id="section16-5a" class="live" onclick="set_images(['app/images/section16/cd-st.jpg'], this)">5A. Remove the coil lead from screw terminal 1 on the circuit, trace the lead back to the mirror assembly it comes from. Take a look at the mirror on that assembly and make note of its natural resting position. The surface of the mirror should be level with the surface of the mirror frame (if it's not you'll have to adjust it with the spring force adjustment tube).
-<br>
-<br>
-<b>Tip:</b> Looking at a reference point in the reflection of the mirror before reconnecting the lead is a great way to tell how far the mirror moves when the coil gets power, and to see if you've adjusted it back to it's natural resting position.</div>
-<div id="section16-6a" class="live" onclick="set_images(['app/images/section16/cd-st.jpg','app/images/section16/cd-VR1.jpg'], this)">6A. Reconnect the coil lead to screw terminal 1, then adjust VR1 until the mirror is in it's natural resting position (the same position it was when the lead was not connected). VR1 effects screw terminal 1. 
-<br>
-    <br>
-<b>Note:</b> Note: VR1 & 2 are 20 turn pots. That means they make 20 full rotations between their highest and lowest resistances. That being said, it’s ok to turn the pots over 20 rotations. It is normal to turn the pot 5 times or more and see no change in voltage.  Keep turning, once you get in range the voltage will change quickly.
+    <div id="section19-1" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1. Open the terminal and change directory into the source folder (src) in the Peachy Printer Tools folder, type <b>python exposure_test.py</b> and press <b>Enter</b> 
         <br>
-    <br>
-<b>Note:</b> If adjusted perfectly, the mirror should not move at all when you momentarily make a connection by tapping the coil lead to screw terminal 1.  The more the mirror jumps the further it is away from being zeroed, so get it as close as you can (it doesn’t have to be perfect, but it shouldn't move much). When a printer's circuit is not zeroed to that specific computer, it may turn the laser off for a portion of it's path during a print, or the laser may never come on at all.</div>
-<div id="section16-7a" class="live" onclick="set_images(['app/images/section16/cd-st.jpg','app/images/section16/cd-VR2.jpg'], this)">7A. Repeat with screw terminal 3, the other mirror assembly, and VR2. VR2 and effects screw terminal 3.</div>
-
-<h3>Instruction set B - with a voltmeter</h3>
-
-<div id="section16-1b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">1B.  Remove the external housing, unmount the printer from the internal box, and set it down on the table. Connect the printer to your computer with the two power cables going to your computer’s USB ports, and the audio cable going to your computer’s headphone jack.</div>
-<div id="section16-2b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2B. Launch calibrate-main.py</div>
-<div id="section16-3b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3B. In the “shape: pull down menu change the shape to “center”. Pull the audio jack out of your computer to check that the software is playing a signal.  You should hear a high pitched tone, if so then plug the audio cable back in.</div>
-<div id="section16-4b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4B. Open your computer’s advanced volume settings.  Ensure that the master volume is at 100% and that the individual program volume for the calibration app is at 100% as well.
-        <br>
-        <br>
-        <b>Note:</b> Make sure you never have your volume over 100%, this should ensure that you’re not using gain in your sound system. Using gain will likely cause clipping of the audio signal that gets sent to the printer.  This will result in a print that is missing an entire portion of it’s wall.  Every time you use your printer, the volume settings must be the same.</div>
-<div id="section16-5b" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5B. Set your voltmeter to the 2 volt range (unless autoranging). 
-    <br>
-    <br>
-    <b>Note:</b> you might need to start on a higher range and then switch down to for more accuracy 2v. </div>
-<div id="section16-6b" class="live" onclick="set_images(['app/images/section16/cd-TP12.jpg'], this)">6B. Connect the black lead of your voltmeter to Test Point TP12 - you'll have to hold it here for the rest of this section. </div>
-<div id="section16-7b" class="live" onclick="set_images(['app/images/section16/cd-all.jpg'], this)">7B. Connect the red lead of your voltmeter to Test Point TP5.  Adjust VR1 until the voltmeter reads in range between 0.000V - 0.050V.  The closer you can get to 0.000V the better. VR1 and TP5 effect screw terminal 1.
-<br>
-    <br>
-<b>Note:</b> Note: VR1 & 2 are 20 turn pots. That means they make 20 full rotations between their highest and lowest resistances. That being said, it’s ok to turn the pots over 20 rotations. It is normal to turn the pot 5 times or more and see no change in voltage.  Keep turning, once you get in range the voltage will change quickly.</div>
-        <div id="section16-8b" class="live" onclick="set_images(['app/images/section16/cd-all.jpg'], this)">8B. Move the red lead to Test Point TP6.  Adjust VR2 until the voltmeter reads in range between 0.000V - 0.050V. Note: The closer you can get to 0.000V the better. VR2 and TP6 effect screw terminal 3.</div>
+        This will generate gcode for your cure time calibration print.</div>
+        
+        <div id="section19-2" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">2. Convert the gcode you just generated to a wav file from the command line by typing <b>python gcode_wav_converter.py &quot;tuning.dat&quot; &quot;exposure_test.gcode&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and pressing <b>Enter</b></div>
+        
+        <div id="section19-3" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">3. Remove your upper reservoir from the top of the external housing, and then remove the external housing.  Place your print base inside the lower reservoir,  Add some salt water to the lower reservoir, then add a small amount of resin on top of the salt water (just enough to completely cover the surface) by slowly pouring it down the side wall of the container (similar to how a beer would be poured).  Be sure that the surface level of the resin does not get above the wire mesh of your print base.   Put the lower reservoir inside the internal housing making sure the laser beam is hitting the center of the print base.You can now place the external housing back on, and the upper reservoir back on top of the printer.  Make sure that the drip feed still connects the two reservoirs.</div>
+        
+        <div id="section19-4" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">4. Open the drip valve and let the surface level of the resin rise. Close the valve off when the surface level of the resin is just below the wire mesh print base. 
+            <br>
+            <br>
+            <b>Note:</b> If the resin rises above the wire mesh print base, the print will not adhere to the base and your print will fail. This is because the laser light only cures approximately 0.1mm down into the resin.</div>
+        
+        <div id="section19-5" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">5. Ensure that your microphone setting on the computer is set to 100% and your volume is also at 100%.</div>
+        
+        <div id="section19-6" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">6. From the command line type <b>python wav_player.py &quot;Tuning.dat&quot; &quot;out.wav&quot; &quot;out.cue&quot;</b> and press <b>Enter</b></div>
+        
+        <div id="section19-7" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">7. Slowly turn on the drip valve and monitor the feedback on the screen.  The print will start automatically once the software detects the first drip.</div>
+        
+        <div id="section19-8" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">8. If you set the drip rate to fast, the software will give you the following warning: “<b>Too fast:-------> X drips ahead</b>”.  If this happens re-adjust the clamp ring valve on the drip feed until the warning stops appearing. 
+            <br>
+            <br>
+            <b>Note:</b> A print generally won't fail until the dripper is running 100-200 drips ahead.  In fact, it doesn’t hurt to have the drip rate running 5-25 drips ahead at all times.</div>
+        
+        <div id="section19-9" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">9. You are now printing!  Watch and wait :)</div>
+        
+        <div id="section19-10" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">10. The software will notify you when the print is completely. Stop the drip feed completely. Remove the print from the lower reservoir by picking up the print base with a pair of tweezers. Be careful not to expose it to UV light (sunlight, grow lights, tanning beds) until after you’ve completed all the steps in this section.
+            <br>
+            <br>
+            <b>Safety Note:</b> Be sure that you are wearing protective gloves when handling a fresh print.  Once the print is fully cured, you can wash it thoroughly with soap and water, and then it is safe to handle with bare hands.</div>
+        
+        <div id="section19-11" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">11. Set the print down and poke along it from top to bottom.  You’ll notice that it’s cured hard on one end, and soft on the other.  The ideal cure rate or laser speed will have taken place at the hardest (most cured) point that is still smooth.  Make a mark at this point.</div>
+        
+        <div id="section19-12" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">12. Measure the distance from the bottom of the print to the mark you made and subtract 3 mm from your measurement.  To calculate your ideal laser speed in mm/second take your measurement, multiply it by 50, and add 100. For example, if your print is cured properly at a height of 10mm your calculation would be 10 * 50 + 100 = 600(mm/second).</div>
+        
+        <div id="section19-13" class="live" onclick="set_images(['app/images/noimage.jpg'], this)">13. Make note of this value as you will use it when generating your gcode. <b>Congratulations on your first print!</b></div>
 </div>
+<div id="Section*">
+</div>
+</div>
+    </div>
+  </div>
 
